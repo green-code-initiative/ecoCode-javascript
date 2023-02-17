@@ -37,7 +37,7 @@ npm install -D eslint @ecocode/eslint-plugin
 {
   "plugins": ["ecocode"],
   "rules": {
-    "ecocode/no-eval-like-methods": 'off'
+    "ecocode/no-multiple-access-dom-element": 'off'
   }
 }
 ```
@@ -47,8 +47,9 @@ Rules
 
 <!-- begin auto-generated rules list -->
 
-| Name |
-|:-----|
+| Name                                                                           | Description                                   |
+| :----------------------------------------------------------------------------- | :-------------------------------------------- |
+| [no-multiple-access-dom-element](docs/rules/no-multiple-access-dom-element.md) | Disallow multiple access of same DOM element. |
 
 <!-- end auto-generated rules list -->
 
