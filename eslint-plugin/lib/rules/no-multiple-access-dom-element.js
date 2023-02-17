@@ -23,7 +23,7 @@ module.exports = {
     docs: {
       description: "Disallow multiple access of same DOM element.",
       category: "eco-design",
-      recommended: false,
+      recommended: "warn",
     },
     messages: {
       ShouldBeAssignToVariable:

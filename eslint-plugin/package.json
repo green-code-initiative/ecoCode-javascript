@@ -22,9 +22,6 @@
     "test": "mocha tests --recursive",
     "update:eslint-docs": "eslint-doc-generator"
   },
-  "dependencies": {
-    "requireindex": "^1.2.0"
-  },
   "devDependencies": {
     "eslint": "^8.19.0",
     "eslint-config-prettier": "^8.6.0",

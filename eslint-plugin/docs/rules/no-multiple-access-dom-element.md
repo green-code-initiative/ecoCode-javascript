@@ -1,5 +1,7 @@
 # Disallow multiple access of same DOM element (`@ecocode/no-multiple-access-dom-element`)
 
+⚠️ This rule _warns_ in the ✅ `recommended` config.
+
 <!-- end auto-generated rule header -->
 
 ## Rule details

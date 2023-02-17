@@ -21,15 +21,20 @@
  */
 "use strict";
 
-//------------------------------------------------------------------------------
-// Requirements
-//------------------------------------------------------------------------------
+const rules = ["no-multiple-access-dom-element"];
 
-const requireIndex = require("requireindex");
+const ruleModules = {};
+const configs = { recommended: { plugins: ["@ecocode"], rules: {} } };
 
-//------------------------------------------------------------------------------
-// Plugin Definition
-//------------------------------------------------------------------------------
+rules.forEach((rule) => {
+  ruleModules[rule] = require(`./rules/${rule}`);
+  const {
+    meta: {
+      docs: { recommended },
+    },
+  } = ruleModules[rule];
+  configs.recommended.rules[`@ecocode/${rule}`] =
+    recommended === false ? "off" : recommended;
+});
 
-// import all rules in lib/rules
-module.exports.rules = requireIndex(__dirname + "/rules");
+module.exports = { rules: ruleModules, configs };

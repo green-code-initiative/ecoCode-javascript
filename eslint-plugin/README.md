@@ -23,21 +23,23 @@ npm install -D eslint @ecocode/eslint-plugin
 
 ### Enable whole plugin
 
+Add `@ecocode` recommended configuration to `extends` section of your `.eslintrc`:
+
 ```jsonc
-// .eslintrc
 {
-  "plugins": ["ecocode"]
+  "extends": ["plugin:@ecocode/recommended"]
 }
 ```
 
-### Modify rules manually if needed
+### Enable only some rules
+
+Add `@ecocode` to the `plugins` section of your `.eslintrc`, followed by rules configuration:
 
 ```jsonc
-// .eslintrc
 {
-  "plugins": ["ecocode"],
+  "plugins": ["@ecocode"],
   "rules": {
-    "ecocode/no-multiple-access-dom-element": 'off'
+    "@ecocode/no-multiple-access-dom-element": "error"
   }
 }
 ```
@@ -47,9 +49,12 @@ Rules
 
 <!-- begin auto-generated rules list -->
 
-| Name                                                                           | Description                                   |
-| :----------------------------------------------------------------------------- | :-------------------------------------------- |
-| [no-multiple-access-dom-element](docs/rules/no-multiple-access-dom-element.md) | Disallow multiple access of same DOM element. |
+⚠️ Configurations set to warn in.\
+✅ Set in the `recommended` configuration.
+
+| Name                                                                           | Description                                   | ⚠️ |
+| :----------------------------------------------------------------------------- | :-------------------------------------------- | :- |
+| [no-multiple-access-dom-element](docs/rules/no-multiple-access-dom-element.md) | Disallow multiple access of same DOM element. | ✅  |
 
 <!-- end auto-generated rules list -->
 
