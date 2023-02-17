@@ -7,12 +7,17 @@
     "eslintplugin",
     "eslint-plugin"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/green-code-initiative/ecoCode-linter.git"
+  },
+  "license": "GPL-3.0",
   "author": "Green Code Initiative",
   "main": "./lib/index.js",
   "exports": "./lib/index.js",
   "scripts": {
     "lint": "npm-run-all \"lint:*\"",
-    "lint:eslint-docs": "npm-run-all \"update:eslint-docs -- --check\"",
+    "lint:eslint-docs": "eslint-doc-generator --check",
     "lint:js": "eslint .",
     "test": "mocha tests --recursive",
     "update:eslint-docs": "eslint-doc-generator"
@@ -36,6 +41,5 @@
   },
   "peerDependencies": {
     "eslint": ">=7"
-  },
-  "license": "GPL-3.0"
+  }
 }
