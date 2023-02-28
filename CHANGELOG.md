@@ -9,11 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- First release of this plugin `ecoCode-linter`
 - Add `CONTRIBUTING.md`
 
-### Changed
-
-- upgrade SonarQube version to 9.9
 
 [unreleased]: https://github.com/green-code-initiative/ecoCode/compare/v0.0.1...HEAD
 
