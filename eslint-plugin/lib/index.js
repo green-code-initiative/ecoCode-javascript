@@ -21,7 +21,10 @@
  */
 "use strict";
 
-const rules = ["no-multiple-access-dom-element"];
+const rules = [
+  // add rule names here in an alphabetical order to avoid conflicts
+  "no-multiple-access-dom-element",
+];
 
 const ruleModules = {};
 const configs = { recommended: { plugins: ["@ecocode"], rules: {} } };

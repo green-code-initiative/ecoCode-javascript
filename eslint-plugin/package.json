@@ -5,7 +5,9 @@
   "keywords": [
     "eslint",
     "eslintplugin",
-    "eslint-plugin"
+    "eslint-plugin",
+    "ecocode",
+    "greenit"
   ],
   "repository": {
     "type": "git",

@@ -32,6 +32,9 @@ Not available right now. Coming soon!
 If you don't want to integrate rules into SonarQube, you are free to do so.\
 Plugins are working nicely on their own! Follow instructions in the dedicated README files.
 
+- [JavaScript/TypeScript linter using ESLint](https://github.com/green-code-initiative/ecoCode-linter/blob/main/eslint-plugin/README.md)
+- More to come..
+
 🛒 Distribution
 ---------------
 
@@ -41,4 +44,11 @@ You can follow changelogs on [GitHub Releases page](https://github.com/green-cod
 🤝 Contribution
 ---------------
 
-TODO
+You have an idea or you want to help us improving these linters? \
+We are open to your suggestions and contributions! Open an issue or PR 🚀
+
+Follow these guides to start contributing on linter plugins:
+
+- [Before starting to contribute](https://github.com/green-code-initiative/ecoCode-linter/blob/main/CONTRIBUTING.md)
+- [Create a rule for the ESLint plugin](https://github.com/green-code-initiative/ecoCode-linter/blob/main/eslint-plugin/CONTRIBUTING.md)
+- More to come..
