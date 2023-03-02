@@ -8,9 +8,9 @@ have the basic information before starting.
 
 ## Requirements
 
-- You must have Node.js 14.17.x, 16.x or 18.x installed on your machine
+- You must have Node.js 14.17.x, 16.x, 18.x or newer installed on your machine
 - You must know how an ESLint plugin works
-- You must know how to create a custom rule in an ESLint
+- You must know how to create a custom rule in an ESLint plugin
 - You can have Yarn 2.x installed beside npm ([installation guide](https://yarnpkg.com/getting-started/install))
 
 The ESLint documentation is very detailed and provides a useful starting point.\
@@ -58,7 +58,7 @@ Run the following script to start all test suites: `yarn run test`.
 ### Register the rule
 
 After being created, the rule must be registered into `lib/index.js` file.\
-To do so, the rule name has to be added in the array called **"rules"** (possibility in an alphabetically order).
+To do so, the rule name has to be added in the array called **"rules"** (in an alphabetically order).
 
 ### Generate rule documentation
 
@@ -68,7 +68,8 @@ It allows to update rule doc file and main README based on metadata of rules.
 
 Two npm scripts are available:
 
-- `yarn run lint:eslint-docs` to verify auto-updated data of rules in Markdown files
 - `yarn run update:eslint-docs` to update Markdown files with data of rules
+- `yarn run lint:eslint-docs` to verify auto-updated data of rules in Markdown files
 
-All the generated code is between commented lines with "auto-generated" in the text.
+All the generated code is between commented lines with "auto-generated" in the text.\
+**Please run update script** after a rule creation.
