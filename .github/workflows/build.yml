@@ -27,4 +27,4 @@ jobs:
       - name: Lint
         run: yarn --cwd eslint-plugin lint
       - name: Test
-        run: yarn --cwd eslint-plugin test
+        run: yarn --cwd eslint-plugin test:cov

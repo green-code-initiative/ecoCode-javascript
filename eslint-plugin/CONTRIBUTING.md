@@ -53,7 +53,8 @@ They are executed with the [mocha](https://mochajs.org/) test framework.
 Please add as many valid and invalid uses cases as necessary for a each rule.\
 This will allow a large code coverage and avoid false positives.
 
-Run the following script to start all test suites: `yarn run test`.
+Run the following script to start all test suites: `yarn run test`.\
+To display tests coverage, use `yarn run test:cov`.
 
 ### Register the rule
 
