@@ -16,10 +16,16 @@ the [main ecoCode repository](https://github.com/green-code-initiative/ecoCode/t
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
-Getting started
----------------
+📣 Why linters?
+----------------
 
-TODO
+This repository contains multiple linters that each support a different set of programming languages. They are separated
+from each other and are designed primarily to analyze static code that the SonarQube scanner cannot process. They can
+however be used, modified and published independently of our ecoCode plugins.
+
+The purpose of these linters is twofold: to allow code smells to be found as soon as it is written using standard
+techonologies, and also to trace these reports back into SonarQube. This way we can make up for a SonarQube lack by
+improving feedback to developers. It's a good deal! And the use is not more complex.
 
 🌿 Use with our SonarQube plugin
 --------------------------------
@@ -47,8 +53,5 @@ You can follow changelogs on [GitHub Releases page](https://github.com/green-cod
 You have an idea or you want to help us improving these linters? \
 We are open to your suggestions and contributions! Open an issue or PR 🚀
 
-Follow these guides to start contributing on linter plugins:
-
-- [Before starting to contribute](https://github.com/green-code-initiative/ecoCode-linter/blob/main/CONTRIBUTING.md)
-- [Create a rule for the ESLint plugin](https://github.com/green-code-initiative/ecoCode-linter/blob/main/eslint-plugin/CONTRIBUTING.md)
-- More to come..
+Check out the [CONTRIBUTING.md](https://github.com/green-code-initiative/ecoCode-linter/blob/main/CONTRIBUTING.md) file
+and follow the various guides to start contributing.
