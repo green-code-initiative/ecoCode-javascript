@@ -6,3 +6,4 @@ node_modules
 *-report.json
 .nyc_output
 coverage
+generated-rules.json

@@ -19,7 +19,7 @@
 /** @type {import("eslint").Rule.RuleModule} */
 module.exports = {
   meta: {
-    type: "problem",
+    type: "suggestion",
     docs: {
       description: "Disallow multiple access of same DOM element.",
       category: "eco-design",
