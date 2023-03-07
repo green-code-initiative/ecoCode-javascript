@@ -65,10 +65,9 @@ to have more information about the integration.
 ⚠️ Configurations set to warn in.\
 ✅ Set in the `recommended` configuration.
 
-| Name | Description | ⚠️ |
+| Name                                                                           | Description                                   | ⚠️ |
 | :----------------------------------------------------------------------------- | :-------------------------------------------- | :- |
-| [no-multiple-access-dom-element](docs/rules/no-multiple-access-dom-element.md) | Disallow multiple access of same DOM
-element. | ✅ |
+| [no-multiple-access-dom-element](docs/rules/no-multiple-access-dom-element.md) | Disallow multiple access of same DOM element. | ✅  |
 
 <!-- end auto-generated rules list -->
 
