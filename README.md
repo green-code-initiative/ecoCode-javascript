@@ -15,6 +15,8 @@ the [main ecoCode repository](https://github.com/green-code-initiative/ecoCode/t
 > ⚠️ These plugins are in a very early stage and need improvements. Any contribution will be appreciated.
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](https://github.com/green-code-initiative/ecoCode-common/blob/main/doc/CODE_OF_CONDUCT.md)
+[![Sonar Quality gate](https://img.shields.io/sonar/quality_gate/green-code-initiative_ecoCode-linter?server=https%3A%2F%2Fsonarcloud.io)](https://sonarcloud.io/project/overview?id=green-code-initiative_ecoCode-linter)
 
 📣 Why linters?
 ----------------
@@ -38,7 +40,7 @@ Not available right now. Coming soon!
 If you don't want to integrate rules into SonarQube, you are free to do so.\
 Plugins are working nicely on their own! Follow instructions in the dedicated README files.
 
-- [JavaScript/TypeScript linter using ESLint](https://github.com/green-code-initiative/ecoCode-linter/blob/main/eslint-plugin/README.md)
+- [JavaScript/TypeScript linter using ESLint](eslint-plugin/README.md)
 - More to come..
 
 🛒 Distribution
@@ -53,5 +55,5 @@ You can follow changelogs on [GitHub Releases page](https://github.com/green-cod
 You have an idea or you want to help us improving these linters? \
 We are open to your suggestions and contributions! Open an issue or PR 🚀
 
-Check out the [CONTRIBUTING.md](https://github.com/green-code-initiative/ecoCode-linter/blob/main/CONTRIBUTING.md) file
+Check out the [CONTRIBUTING.md](CONTRIBUTING.md) file
 and follow the various guides to start contributing.

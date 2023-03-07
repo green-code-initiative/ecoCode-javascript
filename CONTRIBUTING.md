@@ -8,5 +8,5 @@ This repository contains multiple linters you can contribute to, depending on th
 for:
 
 - JavaScript/TypeScript linter, written as an ESLint plugin\
-  [Click here to read its dedicated contribution guide](https://github.com/green-code-initiative/ecoCode-linter/blob/main/eslint-plugin/CONTRIBUTING.md)
+  [Click here to read its dedicated contribution guide](eslint-plugin/CONTRIBUTING.md)
 - More to come..

@@ -74,3 +74,20 @@ Two npm scripts are available:
 
 All the generated code is between commented lines with "auto-generated" in the text.\
 **Please run update script** after a rule creation.
+
+## Import a rule into the SonarQube plugin
+
+After being developed in the linter, a rule must be integrated into the SonarQube plugin in order to be displayed
+correctly with all its details. A tooling script makes this job very easy.
+
+1. Run the npm script `yarn run generate-sonar-rules`
+2. A file will be created at **"tools/generated-rules.json"**, copy its content
+3. Paste it into ecoCode project in file
+   **"javascript-plugin/src/main/resources/fr/greencodeinitiative/i10n/javascript/rules.json"**
+
+## End of development?
+
+The last step is to open a PR on this project with the implementation of the rule, and a second one on the ecoCode
+project with the list of updated rules. Keep an eye on the coverage of your rule implementation 👀
+
+This is the end of this guide, thank you for reading this far and contributing to the project 🙏.
