@@ -23,11 +23,11 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - name: Install dependencies
-        run: yarn --cwd eslint-plugin install --frozen-lockfile
+        run: yarn install --immutable
       - name: Lint
-        run: yarn --cwd eslint-plugin lint
+        run: yarn lint
       - name: Test
-        run: yarn --cwd eslint-plugin test:cov
+        run: yarn test:cov
 
   sonarcloud:
     name: SonarCloud
@@ -38,9 +38,9 @@ jobs:
         with:
           fetch-depth: 0
       - name: Install dependencies
-        run: yarn --cwd eslint-plugin install --frozen-lockfile
+        run: yarn install --immutable
       - name: Test
-        run: yarn --cwd eslint-plugin test:cov
+        run: yarn test:cov
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:

@@ -1,8 +1,19 @@
-!.gitignore
-!.github/**/*.*
-node_modules
+# Editors & OS
+.DS_Store
 .idea
 *.iml
+
+# Yarn
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+node_modules
+
+# Auto-generated files
 *-report.json
 .nyc_output
 coverage

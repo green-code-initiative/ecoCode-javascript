@@ -11,7 +11,7 @@ have the basic information before starting.
 - You must have Node.js 14.17.x, 16.x, 18.x or newer installed on your machine
 - You must know how an ESLint plugin works
 - You must know how to create a custom rule in an ESLint plugin
-- You can have Yarn 2.x installed beside npm ([installation guide](https://yarnpkg.com/getting-started/install))
+- You must have modern Yarn 2+ installed ([installation guide](https://yarnpkg.com/getting-started/install))
 
 The ESLint documentation is very detailed and provides a useful starting point.\
 Check more here: https://eslint.org/docs/latest/extend/custom-rules
@@ -22,8 +22,7 @@ But it can be useful to prepare a test project to check the correct execution of
 ## Installation
 
 1. Clone the Git repository
-2. Run `yarn install` or `npm install` inside **eslint-plugin** directory\
-   (depending on the Node.js package manager you use)
+2. Run `yarn install` inside **eslint-plugin** directory
 3. You are good to go! 🚀
 
 ## Create a rule

@@ -1,0 +1,19 @@
+{
+  "description": "Monorepo with linters of ecoCode project",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/green-code-initiative/ecoCode-linter.git"
+  },
+  "license": "GPL-3.0",
+  "author": "Green Code Initiative",
+  "workspaces": [
+    "eslint-plugin"
+  ],
+  "scripts": {
+    "lint": "yarn workspaces foreach -p run lint",
+    "test": "yarn workspaces foreach -p run test",
+    "test:cov": "yarn workspaces foreach -p run test:cov"
+  },
+  "packageManager": "yarn@3.4.1"
+}
