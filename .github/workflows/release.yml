@@ -1,0 +1,67 @@
+name: Create Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      linter:
+        description: 'Linter package to release'
+        required: true
+        type: choice
+        options:
+          - eslint-plugin
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    name: Create release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Use Node.js 18
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Check version
+        run: yarn version check
+
+      - name: Apply version
+        run: yarn workspace @ecocode/${{ inputs.linter }} version apply
+
+      - name: Get package version
+        id: package-version
+        uses: martinbeentjes/npm-get-version-action@main
+        with:
+          path: ${{ inputs.linter }}
+
+      - name: Extract release notes
+        id: extract-release-notes
+        uses: ffurrer2/extract-release-notes@v1
+        with:
+          changelog_file: ${{ inputs.linter }}/CHANGELOG.md
+          prerelease: true
+
+      - name: Update changelog
+        uses: thomaseizinger/keep-a-changelog-new-release@v1
+        with:
+          tag: ${{ inputs.linter }}/${{ steps.package-version.outputs.current-version }}
+          changelogPath: ${{ inputs.linter }}/CHANGELOG.md
+
+      - name: Commit new version
+        uses: EndBug/add-and-commit@v9
+        with:
+          message: Bump ${{ inputs.linter }} to ${{ steps.package-version.outputs.current-version }}
+          default_author: github_actions
+
+      - name: Create release
+        uses: softprops/action-gh-release@v1
+        with:
+          name: ${{ inputs.linter }} ${{ steps.package-version.outputs.current-version }}
+          tag_name: ${{ inputs.linter }}/${{ steps.package-version.outputs.current-version }}
+          body: ${{ steps.extract-release-notes.outputs.release_notes }}
