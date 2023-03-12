@@ -6,7 +6,7 @@ on:
 
 jobs:
   check-version:
-    name: Lint and Test
+    name: Check version bump
     runs-on: ubuntu-latest
 
     steps:

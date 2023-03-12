@@ -89,4 +89,6 @@ correctly with all its details. A tooling script makes this job very easy.
 The last step is to open a PR on this project with the implementation of the rule, and a second one on the ecoCode
 project with the list of updated rules. Keep an eye on the coverage of your rule implementation 👀
 
+Please check the semantic version you wish to target with your development: `yarn version check -i`
+
 This is the end of this guide, thank you for reading this far and contributing to the project 🙏.
