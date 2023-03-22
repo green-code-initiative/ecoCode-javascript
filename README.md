@@ -29,10 +29,14 @@ The purpose of these linters is twofold: to allow code smells to be found as soo
 techonologies, and also to trace these reports back into SonarQube. This way we can make up for a SonarQube lack by
 improving feedback to developers. It's a good deal! And the use is not more complex.
 
-🌿 Use with our SonarQube plugin
---------------------------------
+🌿 Use with our SonarQube plugins
+---------------------------------
 
-Not available right now. Coming soon!
+Linters in this repository are primally designed to work with our SonarQube plugins.\
+Check one of the guides below to install a SonarQube plugin and its associated linter:
+
+- [JavaScript plugin guide](https://github.com/green-code-initiative/ecoCode/blob/main/javascript-plugin/README.md)
+- More to come..
 
 🔧 Use as standalone linters
 ----------------------------
@@ -46,7 +50,13 @@ Plugins are working nicely on their own! Follow instructions in the dedicated RE
 🛒 Distribution
 ---------------
 
-Plugins are available as dedicated NPM packages.\
+SonarQube plugins can be downloaded from _ecoCode_ repository.\
+Linters are available as dedicated NPM packages.
+
+| SonarQube plugin                     | Linter name                                       | Latest version                                                                                                                    |
+|:-------------------------------------|:--------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------|
+| [JavaScript][ecoCode-latest-release] | [@ecocode/eslint-plugin](eslint-plugin/README.md) | [![eslint-plugin version](https://img.shields.io/npm/v/@ecocode/eslint-plugin)](https://npmjs.com/package/@ecocode/eslint-plugin) |
+
 You can follow changelogs on [GitHub Releases page](https://github.com/green-code-initiative/ecoCode-linter/releases).
 
 🤝 Contribution
@@ -57,3 +67,5 @@ We are open to your suggestions and contributions! Open an issue or PR 🚀
 
 Check out the [CONTRIBUTING.md](CONTRIBUTING.md) file
 and follow the various guides to start contributing.
+
+[ecoCode-latest-release]: https://github.com/green-code-initiative/ecoCode/releases/latest
