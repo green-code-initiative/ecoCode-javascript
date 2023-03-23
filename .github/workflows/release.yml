@@ -33,6 +33,7 @@ jobs:
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
+          token: ${{ secrets.RELEASE_TOKEN }}
 
       - name: Use Node.js 18
         uses: actions/setup-node@v3
@@ -45,12 +46,10 @@ jobs:
 
       - name: Get package version
         id: package-version
-        uses: martinbeentjes/npm-get-version-action@main
-        with:
-          path: ${{ inputs.linter }}
+        run: echo "version=$(cat ${{ inputs.linter }}/package.json | jq -r '.version')" >> $GITHUB_OUTPUT
 
       - name: Check tag non-existence
-        run: if git show-ref --tags --verify --quiet -- "refs/tags/${{ inputs.linter }}/${{ steps.package-version.outputs.current-version }}"; then echo "::error::Tag already exists" && exit 1; fi
+        run: if git show-ref --tags --verify --quiet -- "refs/tags/${{ inputs.linter }}/${{ steps.package-version.outputs.version }}"; then echo "::error::Tag already exists" && exit 1; fi
 
       - name: Extract release notes
         id: extract-release-notes
@@ -60,23 +59,25 @@ jobs:
           prerelease: true
 
       - name: Update changelog
-        uses: thomaseizinger/keep-a-changelog-new-release@v1
+        uses: suyaser/keep-a-changelog-new-release@1.4.0
         with:
-          tag: ${{ inputs.linter }}/${{ steps.package-version.outputs.current-version }}
+          version: ${{ steps.package-version.outputs.version }}
+          tag: ${{ inputs.linter }}/${{ steps.package-version.outputs.version }}
           changelogPath: ${{ inputs.linter }}/CHANGELOG.md
 
       - name: Commit new version
         uses: EndBug/add-and-commit@v9
         with:
-          message: Bump ${{ inputs.linter }} to ${{ steps.package-version.outputs.current-version }}
+          message: Bump ${{ inputs.linter }} to ${{ steps.package-version.outputs.version }}
           default_author: github_actions
 
       - name: Create release
         uses: softprops/action-gh-release@v1
         with:
-          name: ${{ inputs.linter }} ${{ steps.package-version.outputs.current-version }}
-          tag_name: ${{ inputs.linter }}/${{ steps.package-version.outputs.current-version }}
+          name: ${{ inputs.linter }} ${{ steps.package-version.outputs.version }}
+          tag_name: ${{ inputs.linter }}/${{ steps.package-version.outputs.version }}
           body: ${{ steps.extract-release-notes.outputs.release_notes }}
+          token: ${{ secrets.RELEASE_TOKEN }}
 
   publish-npm:
     runs-on: ubuntu-latest
