@@ -9,5 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- First release of this plugin `ecoCode-linter`
-- Add `CONTRIBUTING.md`
+- First alpha version of the ESLint plugin 🚀
+- Add rule `@ecocode/no-multiple-access-dom-element`
+- Create tooling script to generate SonarQube rules
+- Setup mocha and nyc for tests and coverage
+- Setup basic coding style tools
+- Write complete contributing guide
