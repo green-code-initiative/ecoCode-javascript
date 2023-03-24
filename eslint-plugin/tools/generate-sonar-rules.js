@@ -68,7 +68,7 @@ const sonarRules = Object.entries(rules).map(([ruleName, rule]) => ({
     rule.meta.docs.severity != null
       ? rule.meta.docs.severity
       : DEFAULT_SEVERITY,
-  tags: [rule.meta.docs.category],
+  tags: [rule.meta.docs.category, "ecocode"],
 }));
 
 writeFileSync(OUTPUT_FILE, JSON.stringify(sonarRules, null, 2), {
