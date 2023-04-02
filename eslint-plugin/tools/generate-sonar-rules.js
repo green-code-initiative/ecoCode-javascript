@@ -22,16 +22,17 @@
 "use strict";
 
 const { readFileSync, writeFileSync } = require("fs");
-// eslint-disable-next-line node/no-unpublished-require
+const { sep } = require("path");
 const { marked } = require("marked");
 const { rules, configs } = require("../lib/index");
 
-const DEFAULT_SEVERITY = "MINOR";
 const DEFAULT_CONSTANT_DEBT_MINUTES = 5;
+const DEFAULT_SEVERITY = "MINOR";
+const DEFAULT_TYPE = "CODE_SMELL";
 
 const DOCUMENTATION_PATH = "docs/rules/";
 const DOCUMENTATION_SEPARATOR = "<!-- end auto-generated rule header -->";
-const OUTPUT_FILE = `${__dirname}/generated-rules.json`;
+const OUTPUT_FILE = `${__dirname}${sep}generated-rules.json`;
 const PLUGIN_NAME = configs.recommended.plugins[0];
 const REPO_BLOB_URL =
   "https://github.com/green-code-initiative/ecoCode-linter/blob/main/eslint-plugin/";
@@ -41,6 +42,7 @@ const REPO_BLOB_URL =
  * Also converts Markdown to HTML to display it in SonarQube interface.
  *
  * @param ruleName name of rule to retrieve documentation
+ * @return HTML documentation of the rule
  */
 const retrieveDocumentation = (ruleName) => {
   const markdownDoc = readFileSync(
@@ -57,7 +59,7 @@ const retrieveDocumentation = (ruleName) => {
 // Browse all exported rules to create their Sonar equivalent.
 const sonarRules = Object.entries(rules).map(([ruleName, rule]) => ({
   key: `${PLUGIN_NAME}/${ruleName}`,
-  type: "CODE_SMELL",
+  type: DEFAULT_TYPE,
   name: rule.meta.docs.description.replace(/.$/, ""),
   description: retrieveDocumentation(ruleName),
   constantDebtMinutes:
