@@ -34,6 +34,7 @@ const resolveRule = (rulePath) => {
 
 const hasTypescriptParser = () => {
   try {
+    // eslint-disable-next-line node/no-unpublished-require
     require("@typescript-eslint/parser");
     return true;
   } catch (e) {
