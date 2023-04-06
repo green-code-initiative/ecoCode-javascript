@@ -1,4 +1,5 @@
 {
+  "name": "ecocode-linter",
   "description": "Monorepo with linters of ecoCode project",
   "private": true,
   "repository": {
