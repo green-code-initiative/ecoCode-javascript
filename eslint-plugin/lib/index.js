@@ -49,7 +49,7 @@ const configs = {
 };
 
 const rulesDirectory = "./rules";
-fs.readdirSync(rulesDirectory).forEach((file) => {
+fs.readdirSync(path.resolve(__dirname, rulesDirectory)).forEach((file) => {
   const ruleName = path.parse(file).name;
   const resolvedRule = resolveRule(`./${path.join(rulesDirectory, ruleName)}`);
 
