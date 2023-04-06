@@ -29,11 +29,45 @@ module.exports = {
       ShouldNotImportAllFromLibrary:
         "You should not import all from library {{library}}",
     },
-    schema: [],
+    schema: [
+      {
+        type: "object",
+        properties: {
+          notAllowedLibraries: {
+            type: "array",
+            items: {
+              type: "string",
+            },
+          },
+          importByNamespaceNotAllowedLibraries: {
+            type: "array",
+            items: {
+              type: "string",
+            },
+          },
+        },
+        additionalProperties: false,
+      },
+    ],
   },
   create: function (context) {
     const notAllowedLibraries = ["lodash", "underscore"];
     const importByNamespaceNotAllowedLibraries = ["lodash-es"];
+
+    if (context.options && context.options.length > 0) {
+      const option = context.options[0];
+
+      if (option.notAllowedLibraries) {
+        notAllowedLibraries.push(...option.notAllowedLibraries);
+      }
+
+      if (option.importByNamespaceNotAllowedLibraries) {
+        notAllowedLibraries.push(
+          ...option.importByNamespaceNotAllowedLibraries
+        );
+      }
+    }
+
     return {
       ImportDeclaration(node) {
         const currentLibrary = node.source.value;

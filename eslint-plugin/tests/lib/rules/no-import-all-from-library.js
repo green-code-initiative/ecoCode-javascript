@@ -68,7 +68,13 @@ ruleTester.run("no-import-all-from-library", rule, {
       errors: [expectedError],
     },
     {
-      code: "import _ from 'underscore';",
+      code: "import someLib from 'some-lib';",
+      options: [{ notAllowedLibraries: ["some-lib"] }],
+      errors: [expectedError],
+    },
+    {
+      code: "import * as someLib from 'some-lib';",
+      options: [{ importByNamespaceNotAllowedLibraries: ["some-lib"] }],
       errors: [expectedError],
     },
   ],
