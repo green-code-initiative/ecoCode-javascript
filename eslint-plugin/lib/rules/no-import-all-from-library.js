@@ -32,8 +32,8 @@ module.exports = {
     schema: [],
   },
   create: function (context) {
-    const notAllowedLibraries = ["lodash"];
-    const importByNamespaceNotAllowedLibraries = ["lodash-es", "date-fns"];
+    const notAllowedLibraries = ["lodash", "underscore"];
+    const importByNamespaceNotAllowedLibraries = ["lodash-es"];
     return {
       ImportDeclaration(node) {
         const currentLibrary = node.source.value;

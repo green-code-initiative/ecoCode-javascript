@@ -67,6 +67,7 @@ to have more information about the integration.
 
 | Name                                                                           | Description                                   | ⚠️ |
 | :----------------------------------------------------------------------------- | :-------------------------------------------- | :- |
+| [no-import-all-from-library](docs/rules/no-import-all-from-library.md)         | Should not import all from library            | ✅  |
 | [no-multiple-access-dom-element](docs/rules/no-multiple-access-dom-element.md) | Disallow multiple access of same DOM element. | ✅  |
 
 <!-- end auto-generated rules list -->

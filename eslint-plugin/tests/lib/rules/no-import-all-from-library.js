@@ -50,7 +50,7 @@ ruleTester.run("no-import-all-from-library", rule, {
     import { orderBy } from 'lodash-es';
     `,
     `
-    import { compareAsc, format } from 'date-fns';
+    import map from 'underscore/modules/map.js';
     `,
   ],
 
@@ -68,7 +68,7 @@ ruleTester.run("no-import-all-from-library", rule, {
       errors: [expectedError],
     },
     {
-      code: "import * as datefns from 'date-fns';",
+      code: "import _ from 'underscore';",
       errors: [expectedError],
     },
   ],
