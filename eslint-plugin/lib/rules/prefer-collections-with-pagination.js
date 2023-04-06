@@ -37,11 +37,11 @@ const isPaginated = (objectType) => {
     if (isPaginationName(objectType.typeName.name)) {
       return true;
     }
-
+  } else if (objectType.type === "TSTypeLiteral") {
     if (
       objectType.members != null &&
       objectType.members.some(
-        (member) => member.key != null && isPaginationName(member.key)
+        (member) => member.key != null && isPaginationName(member.key.name)
       )
     ) {
       return true;
@@ -93,15 +93,21 @@ const rule = createRule({
               : null;
 
           if (returnType != null) {
-            if (returnType.typeName.name === "Promise") {
+            if (
+              returnType.type === "TSTypeReference" &&
+              returnType.typeName.name === "Promise"
+            ) {
               if (
                 returnType.typeParameters.params.length === 1 &&
                 !isPaginated(returnType.typeParameters.params[0])
               ) {
-                report(context, returnType);
-              } else if (!isPaginated(returnType)) {
-                report(context, returnType);
+                report(context, node);
               }
+            } else if (
+              returnType.type === "TSArrayType" ||
+              !isPaginated(returnType)
+            ) {
+              report(context, node);
             }
           }
         }
