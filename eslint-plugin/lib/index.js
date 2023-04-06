@@ -25,6 +25,7 @@ const rules = [
   // add rule names here in an alphabetical order to avoid conflicts
   "no-multiple-access-dom-element",
   "no-postfix-increment",
+  "no-funccall-in-loop",
 ];
 
 const ruleModules = {};
