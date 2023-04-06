@@ -63,7 +63,7 @@ const rule = createRule({
   name: "prefer-collections-with-pagination",
   meta: {
     docs: {
-      description: "TODO",
+      description: "Prefer API collections with pagination",
       category: "eco-design",
       recommended: "warn",
     },
