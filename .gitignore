@@ -1,6 +1,7 @@
 # Editors & OS
 .DS_Store
 .idea
+.vscode
 *.iml
 
 # Yarn

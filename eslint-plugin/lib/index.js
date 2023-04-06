@@ -23,6 +23,7 @@
 
 const rules = [
   // add rule names here in an alphabetical order to avoid conflicts
+  "avoid-high-accuracy-geolocation",
   "no-multiple-access-dom-element",
 ];
 
