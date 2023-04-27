@@ -40,7 +40,7 @@ module.exports = {
 
 ## Examples
 
-Examples of **incorrect** code for this rule:
+Examples of **non-compliant** code for this rule:
 
 ```js
 // Example with lodash
@@ -52,7 +52,7 @@ import * as lodash from "lodash";
 import _ from "underscore";
 ```
 
-Examples of **correct** code for this rule:
+Examples of **compliant** code for this rule:
 
 ```js
 // Example with lodash (uses submodules)
