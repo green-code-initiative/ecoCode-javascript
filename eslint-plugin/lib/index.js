@@ -24,6 +24,7 @@
 const rules = [
   // add rule names here in an alphabetical order to avoid conflicts
   "avoid-high-accuracy-geolocation",
+  "no-import-all-from-library",
   "no-multiple-access-dom-element",
 ];
 
