@@ -65,10 +65,11 @@ to have more information about the integration.
 ⚠️ Configurations set to warn in.\
 ✅ Set in the `recommended` configuration.
 
-| Name                                                                           | Description                                   | ⚠️ |
-| :----------------------------------------------------------------------------- | :-------------------------------------------- | :- |
-| [no-import-all-from-library](docs/rules/no-import-all-from-library.md)         | Should not import all from library            | ✅  |
-| [no-multiple-access-dom-element](docs/rules/no-multiple-access-dom-element.md) | Disallow multiple access of same DOM element. | ✅  |
+| Name                                                                             | Description                                                | ⚠️ |
+| :------------------------------------------------------------------------------- | :--------------------------------------------------------- | :- |
+| [avoid-high-accuracy-geolocation](docs/rules/avoid-high-accuracy-geolocation.md) | Avoid using high accuracy geolocation in web applications. | ✅  |
+| [no-import-all-from-library](docs/rules/no-import-all-from-library.md)           | Should not import all from library                         | ✅  |
+| [no-multiple-access-dom-element](docs/rules/no-multiple-access-dom-element.md)   | Disallow multiple access of same DOM element.              | ✅  |
 
 <!-- end auto-generated rules list -->
 

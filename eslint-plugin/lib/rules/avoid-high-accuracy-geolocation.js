@@ -14,32 +14,33 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
-/**
- * @fileoverview JavaScript linter of ecoCode project
- * @author Green Code Initiative
- */
 "use strict";
 
-const rules = [
-  // add rule names here in an alphabetical order to avoid conflicts
-  "avoid-high-accuracy-geolocation",
-  "no-import-all-from-library",
-  "no-multiple-access-dom-element",
-];
-
-const ruleModules = {};
-const configs = { recommended: { plugins: ["@ecocode"], rules: {} } };
-
-rules.forEach((rule) => {
-  ruleModules[rule] = require(`./rules/${rule}`);
-  const {
-    meta: {
-      docs: { recommended },
+/** @type {import("eslint").Rule.RuleModule} */
+module.exports = {
+  meta: {
+    type: "suggestion",
+    docs: {
+      description: "Avoid using high accuracy geolocation in web applications.",
+      category: "eco-design",
+      recommended: "warn",
     },
-  } = ruleModules[rule];
-  configs.recommended.rules[`@ecocode/${rule}`] =
-    recommended === false ? "off" : recommended;
-});
-
-module.exports = { rules: ruleModules, configs };
+    messages: {
+      AvoidUsingAccurateGeolocation: "Avoid using high accuracy geolocation",
+    },
+    schema: [],
+  },
+  create: function (context) {
+    return {
+      Property(node) {
+        if (
+          node &&
+          node.key.name === "enableHighAccuracy" &&
+          node.value.value === true
+        ) {
+          context.report({ node, messageId: "AvoidUsingAccurateGeolocation" });
+        }
+      },
+    };
+  },
+};
