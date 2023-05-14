@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Add rule `@ecocode/avoid-high-accuracy-geolocation`
 - Add rule `@ecocode/no-import-all-from-library`
 
 ## [0.1.0] - 2023-03-24
