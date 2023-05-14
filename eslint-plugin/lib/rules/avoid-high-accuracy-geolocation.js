@@ -26,8 +26,7 @@ module.exports = {
       recommended: "warn",
     },
     messages: {
-      AvoidUsingAccurateGeolocation:
-        "'{{notAllowedValue}}' is not a valid value, should be false.",
+      AvoidUsingAccurateGeolocation: "Avoid using high accuracy geolocation",
     },
     schema: [],
   },
@@ -39,11 +38,7 @@ module.exports = {
           node.key.name === "enableHighAccuracy" &&
           node.value.value === true
         ) {
-          context.report({
-            node,
-            messageId: "AvoidUsingAccurateGeolocation",
-            data: { notAllowedValue: true },
-          });
+          context.report({ node, messageId: "AvoidUsingAccurateGeolocation" });
         }
       },
     };
