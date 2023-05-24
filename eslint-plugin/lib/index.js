@@ -21,25 +21,27 @@
  */
 "use strict";
 
-const rules = [
-  // add rule names here in an alphabetical order to avoid conflicts
-  "avoid-high-accuracy-geolocation",
-  "no-import-all-from-library",
-  "no-multiple-access-dom-element",
-];
+const fs = require("fs");
+const path = require("path");
 
 const ruleModules = {};
 const configs = { recommended: { plugins: ["@ecocode"], rules: {} } };
 
-rules.forEach((rule) => {
-  ruleModules[rule] = require(`./rules/${rule}`);
-  const {
-    meta: {
-      docs: { recommended },
-    },
-  } = ruleModules[rule];
-  configs.recommended.rules[`@ecocode/${rule}`] =
-    recommended === false ? "off" : recommended;
+const rulesDirectory = path.resolve(__dirname, "rules");
+fs.readdirSync(rulesDirectory).forEach((file) => {
+  const ruleName = path.parse(file).name;
+  const resolvedRule = require(path.join(rulesDirectory, ruleName));
+
+  if (resolvedRule != null) {
+    ruleModules[ruleName] = resolvedRule;
+    const {
+      meta: {
+        docs: { recommended },
+      },
+    } = ruleModules[ruleName];
+    configs.recommended.rules[`@ecocode/${ruleName}`] =
+      recommended === false ? "off" : recommended;
+  }
 });
 
 module.exports = { rules: ruleModules, configs };

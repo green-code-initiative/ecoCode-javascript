@@ -9,8 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Add support for TypeScript rules with **typescript-eslint**
 - Add rule `@ecocode/avoid-high-accuracy-geolocation`
 - Add rule `@ecocode/no-import-all-from-library`
+- Add rule `@ecocode/prefer-collections-with-pagination`
 
 ## [0.1.0] - 2023-03-24
 

@@ -1,7 +1,7 @@
 ![Logo](https://github.com/green-code-initiative/ecoCode/blob/main/docs/resources/logo-large.png?raw=true)
 ======================================
 
-An ESLint plugin which provides JavaScript rules of the ecoCode project.
+An ESLint plugin which provides JavaScript and TypeScript rules of the ecoCode project.
 
 👉 See [ecoCode-linter README](https://github.com/green-code-initiative/ecoCode-linter#readme) to have more information.
 
@@ -20,6 +20,9 @@ yarn add -D eslint @ecocode/eslint-plugin
 # npm
 npm install -D eslint @ecocode/eslint-plugin
 ```
+
+> You are using TypeScript? You will also need to install [typescript-eslint](https://typescript-eslint.io/) to enable our rules.\
+> Follow [this official guide](https://typescript-eslint.io/getting-started) to install it in a few steps.
 
 ### Enable whole plugin
 
@@ -65,11 +68,12 @@ to have more information about the integration.
 ⚠️ Configurations set to warn in.\
 ✅ Set in the `recommended` configuration.
 
-| Name                                                                             | Description                                                | ⚠️ |
-| :------------------------------------------------------------------------------- | :--------------------------------------------------------- | :- |
-| [avoid-high-accuracy-geolocation](docs/rules/avoid-high-accuracy-geolocation.md) | Avoid using high accuracy geolocation in web applications. | ✅  |
-| [no-import-all-from-library](docs/rules/no-import-all-from-library.md)           | Should not import all from library                         | ✅  |
-| [no-multiple-access-dom-element](docs/rules/no-multiple-access-dom-element.md)   | Disallow multiple access of same DOM element.              | ✅  |
+| Name                                                                                   | Description                                                | ⚠️ |
+| :------------------------------------------------------------------------------------- | :--------------------------------------------------------- | :- |
+| [avoid-high-accuracy-geolocation](docs/rules/avoid-high-accuracy-geolocation.md)       | Avoid using high accuracy geolocation in web applications. | ✅  |
+| [no-import-all-from-library](docs/rules/no-import-all-from-library.md)                 | Should not import all from library                         | ✅  |
+| [no-multiple-access-dom-element](docs/rules/no-multiple-access-dom-element.md)         | Disallow multiple access of same DOM element.              | ✅  |
+| [prefer-collections-with-pagination](docs/rules/prefer-collections-with-pagination.md) | Prefer API collections with pagination.                    | ✅  |
 
 <!-- end auto-generated rules list -->
 
