@@ -53,9 +53,9 @@ Plugins are working nicely on their own! Follow instructions in the dedicated RE
 SonarQube plugins can be downloaded from _ecoCode_ repository.\
 Linters are available as dedicated NPM packages.
 
-| SonarQube plugin                     | Linter name                                       | Latest version                                                                                                                    |
-|:-------------------------------------|:--------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------|
-| [JavaScript][ecoCode-latest-release] | [@ecocode/eslint-plugin](eslint-plugin/README.md) | [![eslint-plugin version](https://img.shields.io/npm/v/@ecocode/eslint-plugin)](https://npmjs.com/package/@ecocode/eslint-plugin) |
+| SonarQube plugin                                | Linter name                                       | Latest version                                                                                                                    |
+|:------------------------------------------------|:--------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------|
+| [JavaScript/TypeScript][ecoCode-latest-release] | [@ecocode/eslint-plugin](eslint-plugin/README.md) | [![eslint-plugin version](https://img.shields.io/npm/v/@ecocode/eslint-plugin)](https://npmjs.com/package/@ecocode/eslint-plugin) |
 
 You can follow changelogs on [GitHub Releases page](https://github.com/green-code-initiative/ecoCode-linter/releases).
 

@@ -16,13 +16,7 @@
  */
 "use strict";
 
-const { ESLintUtils } = require("@typescript-eslint/utils");
-
-const createRule = ESLintUtils.RuleCreator(
-  (name) => `https://example.com/rule/${name}`
-);
-
-const PAGINATION_KEY_WORDS = ["page", "pagination"];
+const PAGINATION_KEY_WORDS = ["page", "pagination", "paginated"];
 
 const isPaginationName = (name) => {
   return PAGINATION_KEY_WORDS.some((keyWord) =>
@@ -51,15 +45,11 @@ const isPaginated = (objectType) => {
   return false;
 };
 
-const report = (context, node) => {
-  context.report({
-    node,
-    messageId: "PreferReturnCollectionsWithPagination",
-  });
-};
+const report = (context, node) =>
+  context.report({ node, messageId: "PreferReturnCollectionsWithPagination" });
 
 // Type: RuleModule<"uppercase", ...>
-const rule = createRule({
+module.exports = {
   name: "prefer-collections-with-pagination",
   meta: {
     docs: {
@@ -76,10 +66,18 @@ const rule = createRule({
   },
   defaultOptions: [],
   create(context) {
+    const isValidDecorator = (decorator) => {
+      return (
+        decorator.expression.callee.name.toLowerCase() === "get" &&
+        (decorator.expression.arguments.length === 0 ||
+          !decorator.expression.arguments[0].value.includes(":"))
+      );
+    };
+
     return {
       Decorator(node) {
         if (
-          node.expression.callee.name.toLowerCase() === "get" &&
+          isValidDecorator(node) &&
           node.parent.parent.parent.type === "ClassDeclaration" &&
           node.parent.parent.parent.decorators.find(
             (decorator) =>
@@ -101,19 +99,17 @@ const rule = createRule({
                 returnType.typeParameters.params.length === 1 &&
                 !isPaginated(returnType.typeParameters.params[0])
               ) {
-                report(context, node);
+                report(context, returnType);
               }
             } else if (
               returnType.type === "TSArrayType" ||
               !isPaginated(returnType)
             ) {
-              report(context, node);
+              report(context, returnType);
             }
           }
         }
       },
     };
   },
-});
-
-module.exports = rule;
+};

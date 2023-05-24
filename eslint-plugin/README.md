@@ -1,7 +1,7 @@
 ![Logo](https://github.com/green-code-initiative/ecoCode/blob/main/docs/resources/logo-large.png?raw=true)
 ======================================
 
-An ESLint plugin which provides JavaScript rules of the ecoCode project.
+An ESLint plugin which provides JavaScript and TypeScript rules of the ecoCode project.
 
 👉 See [ecoCode-linter README](https://github.com/green-code-initiative/ecoCode-linter#readme) to have more information.
 
@@ -20,6 +20,9 @@ yarn add -D eslint @ecocode/eslint-plugin
 # npm
 npm install -D eslint @ecocode/eslint-plugin
 ```
+
+> You are using TypeScript? You will also need to install [typescript-eslint](https://typescript-eslint.io/) to enable our rules.\
+> Follow [this official guide](https://typescript-eslint.io/getting-started) to install it in a few steps.
 
 ### Enable whole plugin
 

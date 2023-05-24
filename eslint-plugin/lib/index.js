@@ -24,35 +24,13 @@
 const fs = require("fs");
 const path = require("path");
 
-const resolveRule = (rulePath) => {
-  try {
-    return require(rulePath);
-  } catch (e) {
-    return null;
-  }
-};
-
-const hasTypescriptParser = () => {
-  try {
-    // eslint-disable-next-line node/no-unpublished-require
-    require("@typescript-eslint/parser");
-    return true;
-  } catch (e) {
-    return false;
-  }
-};
-
 const ruleModules = {};
+const configs = { recommended: { plugins: ["@ecocode"], rules: {} } };
 
-const configs = {
-  recommended: { plugins: ["@ecocode"], rules: {} },
-  ...(hasTypescriptParser() ? { parser: "@typescript-eslint/parser" } : {}),
-};
-
-const rulesDirectory = "./rules";
-fs.readdirSync(path.resolve(__dirname, rulesDirectory)).forEach((file) => {
+const rulesDirectory = path.resolve(__dirname, "rules");
+fs.readdirSync(rulesDirectory).forEach((file) => {
   const ruleName = path.parse(file).name;
-  const resolvedRule = resolveRule(`./${path.join(rulesDirectory, ruleName)}`);
+  const resolvedRule = require(path.join(rulesDirectory, ruleName));
 
   if (resolvedRule != null) {
     ruleModules[ruleName] = resolvedRule;
