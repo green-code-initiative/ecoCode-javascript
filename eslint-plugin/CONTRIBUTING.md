@@ -55,11 +55,6 @@ This will allow a large code coverage and avoid false positives.
 Run the following script to start all test suites: `yarn run test`.\
 To display tests coverage, use `yarn run test:cov`.
 
-### Register the rule
-
-After being created, the rule must be registered into `lib/index.js` file.\
-To do so, the rule name has to be added in the array called **"rules"** (in an alphabetically order).
-
 ### Generate rule documentation
 
 A tool called [eslint-doc-generator](https://github.com/bmish/eslint-doc-generator) is used in the project to update
