@@ -6,10 +6,10 @@
 
 ## Rule Details
 
-This rule aims to batch multiple style changes at once.
+This rule aims to disallow batching multiple style changes at once.
 
-To limit the number of repaint/reflow, it is advised to batch style modifications by adding a
-class containing all style changes that will generate a unique reflow.
+To limit the number of repaint/reflow, it is advised to batch style modifications by adding a class containing all style
+changes that will generate a unique reflow.
 
 ## Examples
 
