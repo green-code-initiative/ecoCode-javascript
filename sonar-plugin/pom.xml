@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>io.ecocode</groupId>
+    <artifactId>ecocode-javascript-plugin</artifactId>
+    <version>0.3.0-SNAPSHOT</version>
+
+    <packaging>sonar-plugin</packaging>
+
+    <name>ecoCode JavaScript plugin</name>
+    <description>Provides rules to reduce the environmental footprint of your JavaScript programs</description>
+    <inceptionYear>2023</inceptionYear>
+
+    <url>https://github.com/green-code-initiative/ecoCode-javascript</url>
+    <organization>
+        <name>green-code-initiative</name>
+        <url>https://github.com/green-code-initiative</url>
+    </organization>
+    <scm>
+        <connection>scm:git:https://github.com/green-code-initiative/ecocode-javascript</connection>
+        <developerConnection>scm:git:https://github.com/green-code-initiative/ecocode-javascript</developerConnection>
+        <url>https://github.com/green-code-initiative/ecocode-javascript</url>
+        <tag>HEAD</tag>
+    </scm>
+    <issueManagement>
+        <system>GitHub</system>
+        <url>https://github.com/green-code-initiative/ecocode-javascript/issues</url>
+    </issueManagement>
+
+    <licenses>
+        <license>
+            <name>GPL v3</name>
+            <url>https://www.gnu.org/licenses/gpl-3.0.en.html</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <properties>
+        <java.version>11</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+
+        <encoding>UTF-8</encoding>
+
+        <project.build.sourceEncoding>${encoding}</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>${encoding}</project.reporting.outputEncoding>
+
+        <sonarqube.version>9.4.0.54424</sonarqube.version>
+        <sonar-javascript.version>9.13.0.20537</sonar-javascript.version>
+        <sonar-packaging.version>1.21.0.505</sonar-packaging.version>
+
+        <junit.version>5.9.3</junit.version>
+        <assertj.version>3.24.2</assertj.version>
+        <jacoco.version>0.8.10</jacoco.version>
+    </properties>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>org.sonarsource.sonarqube</groupId>
+            <artifactId>sonar-plugin-api</artifactId>
+            <version>${sonarqube.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.sonarsource.javascript</groupId>
+            <artifactId>sonar-javascript-plugin</artifactId>
+            <version>${sonar-javascript.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <version>${assertj.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.sonarsource.sonar-packaging-maven-plugin</groupId>
+                <artifactId>sonar-packaging-maven-plugin</artifactId>
+                <version>${sonar-packaging.version}</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <pluginKey>ecocodejavascript</pluginKey>
+                    <pluginName>${project.name}</pluginName>
+                    <pluginClass>io.ecocode.javascript.JavaScriptPlugin</pluginClass>
+                    <sonarLintSupported>true</sonarLintSupported>
+                    <sonarQubeMinVersion>${sonarqube.version}</sonarQubeMinVersion>
+                    <jreMinVersion>${java.version}</jreMinVersion>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>${jacoco.version}</version>
+                <configuration>
+                    <output>file</output>
+                    <append>false</append>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>prepare-agent</id>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>report</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
