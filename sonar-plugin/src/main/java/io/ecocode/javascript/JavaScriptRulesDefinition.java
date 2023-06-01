@@ -1,22 +1,32 @@
 package io.ecocode.javascript;
 
-import io.ecocode.javascript.checks.AvoidHighAccuracyGeolocation;
+import org.sonar.api.SonarRuntime;
 import org.sonar.api.server.rule.RulesDefinition;
+import org.sonarsource.analyzer.commons.RuleMetadataLoader;
+
+import java.util.Collections;
 
 public class JavaScriptRulesDefinition implements RulesDefinition {
 
-    private static final String NAME = "ecoCode";
-    private static final String LANGUAGE = "js";
+    public static final String METADATA_LOCATION = "io/ecocode/javascript/rules/javascript";
+
+    private final SonarRuntime sonarRuntime;
+
+    public JavaScriptRulesDefinition(SonarRuntime sonarRuntime) {
+        this.sonarRuntime = sonarRuntime;
+    }
 
     @Override
     public void define(Context context) {
-        NewRepository repository = context.createRepository(JavaScriptRuleRepository.KEY, LANGUAGE).setName(NAME);
+        NewRepository repository = context
+                .createRepository(JavaScriptRuleRepository.KEY, JavaScriptRuleRepository.LANGUAGE)
+                .setName(JavaScriptPlugin.NAME);
 
-        // TODO Import rules dynamically here
-        repository
-                .createRule(AvoidHighAccuracyGeolocation.RULE_KEY)
-                .setName("Avoid using high accuracy geolocation in web applications.")
-                .setHtmlDescription("HTML Description");
+        RuleMetadataLoader ruleMetadataLoader = new RuleMetadataLoader(METADATA_LOCATION, sonarRuntime);
+        ruleMetadataLoader.addRulesByAnnotatedClass(
+                repository,
+                Collections.unmodifiableList(CheckList.getJavaScriptChecks())
+        );
 
         repository.done();
     }

@@ -4,6 +4,8 @@ import org.sonar.api.Plugin;
 
 public class JavaScriptPlugin implements Plugin {
 
+    public static final String NAME = "ecoCode";
+
     @Override
     public void define(Context context) {
         context.addExtensions(

@@ -1,16 +1,19 @@
 package io.ecocode.javascript;
 
 import org.junit.jupiter.api.Test;
+import org.sonar.api.SonarRuntime;
 import org.sonar.api.server.rule.RulesDefinition;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.mock;
 
 class JavaScriptRulesDefinitionTest {
 
     @Test
     void createRepository() {
+        SonarRuntime sonarRuntime = mock(SonarRuntime.class);
         RulesDefinition.Context context = new RulesDefinition.Context();
-        new JavaScriptRulesDefinition().define(context);
+        new JavaScriptRulesDefinition(sonarRuntime).define(context);
         assertThat(context.repositories()).hasSize(1);
 
         RulesDefinition.Repository repository = context.repositories().get(0);
