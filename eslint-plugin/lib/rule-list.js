@@ -14,34 +14,21 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
-/**
- * @fileoverview JavaScript linter of ecoCode project
- * @author Green Code Initiative
- */
 "use strict";
 
 const fs = require("fs");
 const path = require("path");
 
-const ruleModules = {};
-const configs = { recommended: { plugins: ["@ecocode"], rules: {} } };
-
+const rules = [];
 const rulesDirectory = path.resolve(__dirname, "rules");
+
 fs.readdirSync(rulesDirectory).forEach((file) => {
   const ruleName = path.parse(file).name;
-  const resolvedRule = require(path.join(rulesDirectory, ruleName));
+  const ruleModule = require(path.join(rulesDirectory, ruleName));
 
-  if (resolvedRule != null) {
-    ruleModules[ruleName] = resolvedRule;
-    const {
-      meta: {
-        docs: { recommended },
-      },
-    } = ruleModules[ruleName];
-    configs.recommended.rules[`@ecocode/${ruleName}`] =
-      recommended === false ? "off" : recommended;
+  if (ruleModule != null) {
+    rules.push({ ruleName, ruleModule });
   }
 });
 
-module.exports = { rules: ruleModules, configs };
+module.exports = rules;

@@ -16,12 +16,10 @@ node_modules
 
 # Maven
 target
-lib
-bin
 dependency-reduced-pom.xml
 
 # Auto-generated files
 *-report.json
 .nyc_output
 coverage
-generated-rules.json
+dist

@@ -31,7 +31,7 @@ The file structure inside **eslint-plugin** package provides an ESLint-compliant
 So, the rule creation follows the recommended standards.
 
 > It may be useful to take a look at rules already written to use the same structure and conventions.\
-> Also please provide license header inside files with source code (there is an example inside file `lib/index.js`).
+> Also please provide license header inside files with source code (there is an example inside file `lib/rule-list.js`).
 
 Example set of files to add a rule called **"my-awesome-rule"**:
 
