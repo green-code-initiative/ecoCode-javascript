@@ -15,6 +15,10 @@ public class CheckList {
     private CheckList() {
     }
 
+    public static List<Class<? extends JavaScriptCheck>> getAllChecks() {
+        return Arrays.asList(AvoidHighAccuracyGeolocation.class);
+    }
+
     public static List<Class<? extends JavaScriptCheck>> getTypeScriptChecks() {
         return filterChecksByAnnotation(TypeScriptRule.class);
     }
@@ -25,10 +29,6 @@ public class CheckList {
 
     private static List<Class<? extends JavaScriptCheck>> filterChecksByAnnotation(Class<? extends Annotation> annotation) {
         return getAllChecks().stream().filter((check) -> check.isAnnotationPresent(annotation)).collect(Collectors.toList());
-    }
-
-    public static List<Class<? extends JavaScriptCheck>> getAllChecks() {
-        return Arrays.asList(AvoidHighAccuracyGeolocation.class);
     }
 
 }

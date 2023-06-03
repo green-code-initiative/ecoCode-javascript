@@ -8,7 +8,9 @@ import java.util.Collections;
 
 public class JavaScriptRulesDefinition implements RulesDefinition {
 
-    public static final String METADATA_LOCATION = "io/ecocode/javascript/rules/javascript";
+    private static final String METADATA_LOCATION = "io/ecocode/javascript/rules/javascript";
+
+    private static final String PROFILE_PATH = "io/ecocode/javascript/profiles/ecocode_javascript_profile.json";
 
     private final SonarRuntime sonarRuntime;
 
@@ -22,7 +24,12 @@ public class JavaScriptRulesDefinition implements RulesDefinition {
                 .createRepository(JavaScriptRuleRepository.KEY, JavaScriptRuleRepository.LANGUAGE)
                 .setName(JavaScriptPlugin.NAME);
 
-        RuleMetadataLoader ruleMetadataLoader = new RuleMetadataLoader(METADATA_LOCATION, sonarRuntime);
+        RuleMetadataLoader ruleMetadataLoader = new RuleMetadataLoader(
+                METADATA_LOCATION,
+                PROFILE_PATH,
+                sonarRuntime
+        );
+
         ruleMetadataLoader.addRulesByAnnotatedClass(
                 repository,
                 Collections.unmodifiableList(CheckList.getJavaScriptChecks())
