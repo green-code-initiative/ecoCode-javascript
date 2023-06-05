@@ -1,6 +1,6 @@
 package io.ecocode.javascript;
 
-import io.ecocode.javascript.checks.AvoidHighAccuracyGeolocation;
+import io.ecocode.javascript.checks.*;
 import org.sonar.plugins.javascript.api.JavaScriptCheck;
 import org.sonar.plugins.javascript.api.JavaScriptRule;
 import org.sonar.plugins.javascript.api.TypeScriptRule;
@@ -16,7 +16,13 @@ public class CheckList {
     }
 
     public static List<Class<? extends JavaScriptCheck>> getAllChecks() {
-        return Arrays.asList(AvoidHighAccuracyGeolocation.class);
+        return Arrays.asList(
+                AvoidHighAccuracyGeolocation.class,
+                NoImportAllFromLibrary.class,
+                NoMultipleAccessDomElement.class,
+                NoMultipleStyleChanges.class,
+                PreferCollectionsWithPagination.class
+        );
     }
 
     public static List<Class<? extends JavaScriptCheck>> getTypeScriptChecks() {

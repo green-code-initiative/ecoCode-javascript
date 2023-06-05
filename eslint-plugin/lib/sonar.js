@@ -25,7 +25,7 @@ const rules = require("./rule-list");
 
 module.exports = {
   rules: rules.map((rule) => ({
-    ruleId: rule.ruleName,
+    ruleId: `@ecocode/${rule.ruleName}`,
     ruleModule: rule.ruleModule,
     ruleConfig: [],
   })),

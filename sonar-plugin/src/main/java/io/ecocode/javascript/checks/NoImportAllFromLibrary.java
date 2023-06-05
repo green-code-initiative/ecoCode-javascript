@@ -7,14 +7,14 @@ import org.sonar.plugins.javascript.api.TypeScriptRule;
 
 @JavaScriptRule
 @TypeScriptRule
-@Rule(key = AvoidHighAccuracyGeolocation.RULE_KEY)
-public class AvoidHighAccuracyGeolocation implements EslintBasedCheck {
+@Rule(key = NoImportAllFromLibrary.RULE_KEY)
+public class NoImportAllFromLibrary implements EslintBasedCheck {
 
-    public static final String RULE_KEY = "EC8";
+    public static final String RULE_KEY = "EC9";
 
     @Override
     public String eslintKey() {
-        return "@ecocode/avoid-high-accuracy-geolocation";
+        return "@ecocode/no-import-all-from-library";
     }
 
 }

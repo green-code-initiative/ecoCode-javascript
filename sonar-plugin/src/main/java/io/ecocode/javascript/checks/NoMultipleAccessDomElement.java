@@ -7,14 +7,14 @@ import org.sonar.plugins.javascript.api.TypeScriptRule;
 
 @JavaScriptRule
 @TypeScriptRule
-@Rule(key = AvoidHighAccuracyGeolocation.RULE_KEY)
-public class AvoidHighAccuracyGeolocation implements EslintBasedCheck {
+@Rule(key = NoMultipleAccessDomElement.RULE_KEY)
+public class NoMultipleAccessDomElement implements EslintBasedCheck {
 
-    public static final String RULE_KEY = "EC8";
+    public static final String RULE_KEY = "EC11";
 
     @Override
     public String eslintKey() {
-        return "@ecocode/avoid-high-accuracy-geolocation";
+        return "@ecocode/no-multiple-access-dom-element";
     }
 
 }

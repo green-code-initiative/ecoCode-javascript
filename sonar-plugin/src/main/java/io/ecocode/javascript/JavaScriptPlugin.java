@@ -11,7 +11,9 @@ public class JavaScriptPlugin implements Plugin {
         context.addExtensions(
                 ESLintRulesBundle.class,
                 JavaScriptRulesDefinition.class,
-                JavaScriptRuleRepository.class
+                JavaScriptRuleRepository.class,
+                TypeScriptRulesDefinition.class,
+                TypeScriptRuleRepository.class
         );
     }
 

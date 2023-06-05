@@ -1,9 +1,6 @@
 {
   "name": "ecoCode",
   "ruleKeys": [
-    "EC8",
-    "EC9",
-    "EC11",
-    "EC12"
+    "EC13"
   ]
 }
