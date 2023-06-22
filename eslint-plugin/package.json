@@ -11,7 +11,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/green-code-initiative/ecoCode-linter.git",
+    "url": "git+https://github.com/green-code-initiative/ecoCode-javascript.git",
     "directory": "eslint-plugin"
   },
   "license": "GPL-3.0",
@@ -49,5 +49,6 @@
   },
   "peerDependencies": {
     "eslint": ">=7"
-  }
+  },
+  "packageManager": "yarn@3.4.1"
 }

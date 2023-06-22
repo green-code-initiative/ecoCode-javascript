@@ -18,12 +18,14 @@
         <name>green-code-initiative</name>
         <url>https://github.com/green-code-initiative</url>
     </organization>
+
     <scm>
         <connection>scm:git:https://github.com/green-code-initiative/ecocode-javascript</connection>
         <developerConnection>scm:git:https://github.com/green-code-initiative/ecocode-javascript</developerConnection>
         <url>https://github.com/green-code-initiative/ecocode-javascript</url>
         <tag>HEAD</tag>
     </scm>
+
     <issueManagement>
         <system>GitHub</system>
         <url>https://github.com/green-code-initiative/ecocode-javascript/issues</url>
