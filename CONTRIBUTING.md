@@ -6,12 +6,31 @@ in `ecoCode-common` repository first.\
 Also check the [starter pack](https://github.com/green-code-initiative/ecoCode-common/blob/main/doc/starter-pack.md) to
 have the basic information before starting.
 
+## Structure
+
+The JavaScript plugin is divided into 2 modules:
+
+- `eslint-plugin` contains the ESLint plugin part
+- `sonar-plugin` contains the SonarQube plugin implementation
+
+The ESLint plugin **can be standalone** and is packed inside SonarQube plugin during the build phase.
+
 ## Requirements
 
-- You must have Node.js 14.17.x, 16.x, 18.x or newer installed on your machine
-- You must know how an ESLint plugin works
-- You must know how to create a custom rule in an ESLint plugin
-- You must have modern Yarn 2+ installed ([installation guide](https://yarnpkg.com/getting-started/install))
+### For the SonarQube plugin
+
+- Java JDK 11+
+- Maven 3.8 or later
+
+SonarQube provides a documentation to
+learn [plugin basics](https://docs.sonarqube.org/latest/extension-guide/developing-a-plugin/plugin-basics/).
+
+### For the ESLint plugin
+
+- Node.js 14.17.x, 16.x, 18.x or newer
+- Yarn 2+ ([installation guide](https://yarnpkg.com/getting-started/install))
+- ESLint plugin maintenance skills
+- ESLint custom rule creation skills
 
 The ESLint documentation is very detailed and provides a useful starting point.\
 Check more here: https://eslint.org/docs/latest/extend/custom-rules
@@ -26,6 +45,8 @@ But it can be useful to prepare a test project to check the correct execution of
 3. You are good to go! 🚀
 
 ## Create a rule
+
+### In the ESLint plugin
 
 The file structure inside **eslint-plugin** package provides an ESLint-compliant project.\
 So, the rule creation follows the recommended standards.
@@ -42,6 +63,19 @@ Example set of files to add a rule called **"my-awesome-rule"**:
   using [ESLint RuleTester](https://eslint.org/docs/latest/integrate/nodejs-api#ruletester)
 
 The project itself uses ESLint to helps linting rule algorithms.
+
+### In the SonarQube plugin
+
+The SonarQube plugin does not contain the implementation of rules, only declarations and documentations.
+
+Example set of files to add a rule called **"my-awesome-rule"** (SonarQube key: **EC1**):
+
+- `src/main/java/io/ecocode/javascript/checks/MyAwesomeRule.java`: declaration file with the SonarQube key and the
+  ESLint key
+- `src/main/resources/rules/javascript/EC1.json`: detail of the rule for SonarQube
+- `src/main/resources/rules/javascript/EC1.html`: documentation of the rule for SonarQube
+
+You will also need to edit custom profile JSON file and `CheckList.java` to add your rule name in appropriate lists.
 
 ### Test the rule
 
@@ -69,20 +103,10 @@ Two npm scripts are available:
 All the generated code is between commented lines with "auto-generated" in the text.\
 **Please run update script** after a rule creation.
 
-## Import a rule into the SonarQube plugin
-
-After being developed in the linter, a rule must be integrated into the SonarQube plugin in order to be displayed
-correctly with all its details. A tooling script makes this job very easy.
-
-1. Run the npm script `yarn run generate-sonar-rules`
-2. A file will be created at **"tools/generated-rules.json"**, copy its content
-3. Paste it into ecoCode project in file
-   **"javascript-plugin/src/main/resources/fr/greencodeinitiative/i10n/javascript/rules.json"**
-
 ## End of development?
 
-The last step is to open a PR on this project with the implementation of the rule, and a second one on the ecoCode
-project with the list of updated rules. Keep an eye on the coverage of your rule implementation 👀
+The last step is to open a PR on this project with the implementation of the rule, and a second one on the test
+project with an exemple of a code not following rule needs. Keep an eye on the coverage of your rule implementation 👀
 
 Please check the semantic version you wish to target with your development: `yarn version check -i`
 
