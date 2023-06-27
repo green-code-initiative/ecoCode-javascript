@@ -3,7 +3,7 @@
 
 An ESLint plugin which provides JavaScript and TypeScript rules of the ecoCode project.
 
-👉 See [ecoCode-linter README](https://github.com/green-code-initiative/ecoCode-linter#readme) to have more information.
+👉 See [ecoCode-javascript README](../README.md) to have more information.
 
 > ⚠️ This plugin is in a very early stage and need improvements. Any contribution will be appreciated.
 
@@ -21,7 +21,8 @@ yarn add -D eslint @ecocode/eslint-plugin
 npm install -D eslint @ecocode/eslint-plugin
 ```
 
-> You are using TypeScript? You will also need to install [typescript-eslint](https://typescript-eslint.io/) to enable our rules.\
+> You are using TypeScript? You will also need to install [typescript-eslint](https://typescript-eslint.io/) to enable
+> our rules.\
 > Follow [this official guide](https://typescript-eslint.io/getting-started) to install it in a few steps.
 
 ### Enable whole plugin
@@ -46,19 +47,6 @@ Add `@ecocode` to the `plugins` section of your `.eslintrc`, followed by rules c
   }
 }
 ```
-
-🌿 Use with our SonarQube plugin
---------------------------------
-
-If you are already using ESLint results for your SonarQube analysis, there are no additional steps! Otherwise:
-
-- Use **"-f json"** option of ESLint to export results in a JSON format.\
-  _example in a script:_ `eslint . -f json -o report.json`
-- Add the path of the generated report to SonarQube property **"sonar.eslint.reportPaths"**.\
-  _example in sonar-project.properties:_ `sonar.eslint.reportPaths=report.json`
-
-Check [SonarQube documentation](https://docs.sonarqube.org/8.9/analyzing-source-code/importing-external-issues/importing-third-party-issues/)
-to have more information about the integration.
 
 🔨 Rules
 --------
