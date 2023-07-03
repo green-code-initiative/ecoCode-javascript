@@ -14,36 +14,39 @@ jobs:
     strategy:
       matrix:
         node-version: [ 16.x, 18.x ]
+        java-version: [ 11 ]
 
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-      - name: Install dependencies
-        run: yarn install --immutable
-      - name: Lint
-        run: yarn lint
-      - name: Test
-        run: yarn test:cov
-
-  sonarcloud:
-    name: SonarCloud
-    runs-on: ubuntu-latest
-    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
-
-    steps:
-      - uses: actions/checkout@v3
+      - name: Use JDK ${{ matrix.java-version }}
+        uses: actions/setup-java@v3
         with:
-          fetch-depth: 0
+          distribution: temurin
+          java-version: ${{ matrix.java-version }}
+
       - name: Install dependencies
         run: yarn install --immutable
-      - name: Test
+        working-directory: eslint-plugin
+      - name: Lint eslint-plugin
+        run: yarn lint
+        working-directory: eslint-plugin
+      - name: Test eslint-plugin
         run: yarn test:cov
+        working-directory: eslint-plugin
+
+      - name: Verify SonarQube plugin
+        run: mvn -e -B verify
+        working-directory: sonar-plugin
+
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
+        if: (github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository) && matrix.node-version == '18.x'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
