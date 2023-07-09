@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Create SonarQube plugin
+- Pack ESLint plugin into SonarQube plugin 
+- Backport all existing rules into SonarQube plugin 
+- Update release process through GitHub Actions
+
 ## [0.2.0] - 2023-05-29
 
 ### Added
