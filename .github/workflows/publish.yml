@@ -1,0 +1,79 @@
+name: Publish
+
+on:
+  push:
+    tags:
+      - '[0-9]+.[0-9]+.[0-9]+'
+
+permissions:
+  packages: write
+
+env:
+  NODE_VERSION: 18.x
+
+jobs:
+  publish-npm:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout tag "${{ github.ref_name }}"
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.ref_name }}
+
+      - name: Use Node.js ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install dependencies
+        run: yarn install --immutable
+        working-directory: eslint-plugin
+
+      - name: Copy LICENSE
+        run: cp LICENSE.md eslint-plugin/
+
+      - name: Publish package on NPM
+        run: npm publish --access public
+        working-directory: eslint-plugin
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+  publish-github:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout tag "${{ github.ref_name }}"
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.ref_name }}
+
+      - name: Use Node.js ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Install dependencies
+        run: yarn install --immutable
+        working-directory: eslint-plugin
+
+      - name: Copy LICENSE
+        run: cp LICENSE.md eslint-plugin/
+
+      - name: Add scope to package name
+        run: npx --yes change-package-name @${{ github.repository_owner }}/ecocode-eslint-plugin
+        working-directory: eslint-plugin
+
+      - name: Configure GitHub Packages registry
+        uses: bduff9/use-npmrc@v2.0.0
+        with:
+          working-directory: eslint-plugin
+          dot-npmrc: |
+            //npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}
+            @${{ github.repository_owner }}:registry=https://npm.pkg.github.com
+            always-auth=true
+
+      - name: Publish package on GitHub Packages
+        run: npm publish
+        working-directory: eslint-plugin
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

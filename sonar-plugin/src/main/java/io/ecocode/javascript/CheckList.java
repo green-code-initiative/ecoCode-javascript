@@ -34,7 +34,7 @@ public class CheckList {
     }
 
     private static List<Class<? extends JavaScriptCheck>> filterChecksByAnnotation(Class<? extends Annotation> annotation) {
-        return getAllChecks().stream().filter((check) -> check.isAnnotationPresent(annotation)).collect(Collectors.toList());
+        return getAllChecks().stream().filter(check -> check.isAnnotationPresent(annotation)).collect(Collectors.toList());
     }
 
 }
