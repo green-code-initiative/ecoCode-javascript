@@ -108,6 +108,4 @@ All the generated code is between commented lines with "auto-generated" in the t
 The last step is to open a PR on this project with the implementation of the rule, and a second one on the test
 project with an exemple of a code not following rule needs. Keep an eye on the coverage of your rule implementation 👀
 
-Please check the semantic version you wish to target with your development: `yarn version check -i`
-
 This is the end of this guide, thank you for reading this far and contributing to the project 🙏.
