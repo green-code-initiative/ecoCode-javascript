@@ -63,6 +63,9 @@ jobs:
       - name: Check tag non-existence
         run: if git show-ref --tags --verify --quiet -- "refs/tags/${{ steps.package-version.outputs.version }}"; then echo "::error::Tag already exists" && exit 1; fi
 
+      - name: Update Docker Compose configuration
+        run: sed -i -E 's/plugin-(.*).jar/plugin-${{ steps.package-version.outputs.version }}.jar/' docker-compose.yml
+
       - name: Extract release notes
         id: extract-release-notes
         uses: ffurrer2/extract-release-notes@v1
@@ -122,6 +125,14 @@ jobs:
       - name: Prepare next snapshot of SonarQube plugin
         run: mvn versions:set versions:commit -DnextSnapshot=true
         working-directory: sonar-plugin
+
+      - name: Get SonarQube plugin version
+        id: sonar-plugin-version
+        run: echo ::set-output name=version::$(mvn -q -Dexec.executable=echo -Dexec.args='${project.version}' --non-recursive exec:exec)
+        working-directory: sonar-plugin
+
+      - name: Update Docker Compose configuration
+        run: sed -i -E 's/plugin-(.*).jar/plugin-${{ steps.sonar-plugin-version.outputs.version }}.jar/' docker-compose.yml
 
       - name: Commit new version
         uses: EndBug/add-and-commit@v9
