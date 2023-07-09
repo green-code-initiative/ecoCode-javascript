@@ -1,6 +1,6 @@
 {
   "name": "@ecocode/eslint-plugin",
-  "version": "0.2.0",
+  "version": "1.3.0",
   "description": "JavaScript linter of ecoCode project",
   "keywords": [
     "eslint",
