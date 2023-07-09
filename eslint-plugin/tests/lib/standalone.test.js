@@ -1,6 +1,6 @@
 const assert = require("assert");
 
-describe("index.js", () => {
+describe("standalone.js", () => {
   it("should export list of rule modules", () => {
     const { rules } = require("../../lib/standalone");
     assert.notEqual(Object.keys(rules).length, 0);
