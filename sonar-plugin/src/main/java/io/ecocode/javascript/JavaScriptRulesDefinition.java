@@ -8,9 +8,9 @@ import java.util.Collections;
 
 public class JavaScriptRulesDefinition implements RulesDefinition {
 
-    private static final String METADATA_LOCATION = "io/ecocode/javascript/rules/javascript";
+    private static final String METADATA_LOCATION = "io/ecocode/rules/javascript";
 
-    private static final String PROFILE_PATH = "io/ecocode/javascript/profiles/ecocode_javascript_profile.json";
+    private static final String PROFILE_PATH = "io/ecocode/profiles/ecocode_javascript_profile.json";
 
     private final SonarRuntime sonarRuntime;
 
