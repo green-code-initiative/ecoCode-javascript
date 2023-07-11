@@ -7,11 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- [#14](https://github.com/green-code-initiative/ecoCode-javascript/pull/14) Create SonarQube plugin
+- [#12](https://github.com/green-code-initiative/ecoCode-javascript/issues/12) Pack ESLint plugin into SonarQube plugin
+- Backport all existing rules into SonarQube plugin
+
 ### Changed
 
-- Create SonarQube plugin
-- Pack ESLint plugin into SonarQube plugin 
-- Backport all existing rules into SonarQube plugin 
 - Update release process through GitHub Actions
 
 ## [0.2.0] - 2023-05-29
