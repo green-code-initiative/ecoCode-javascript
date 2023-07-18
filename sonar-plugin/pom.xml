@@ -49,6 +49,7 @@
         <project.build.sourceEncoding>${encoding}</project.build.sourceEncoding>
         <project.reporting.outputEncoding>${encoding}</project.reporting.outputEncoding>
 
+        <ecocode-rules-specifications.version>0.0.1</ecocode-rules-specifications.version>
         <sonarqube.version>9.4.0.54424</sonarqube.version>
         <sonar-javascript.version>9.13.0.20537</sonar-javascript.version>
         <sonar-packaging.version>1.21.0.505</sonar-packaging.version>
@@ -63,6 +64,13 @@
     </properties>
 
     <dependencies>
+
+        <dependency>
+            <groupId>io.ecocode</groupId>
+            <artifactId>ecocode-rules-specifications</artifactId>
+            <version>${ecocode-rules-specifications.version}</version>
+            <classifier>javascript</classifier>
+        </dependency>
 
         <dependency>
             <groupId>org.sonarsource.sonarqube</groupId>
