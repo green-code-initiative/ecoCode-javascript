@@ -12,60 +12,57 @@ This reference is maintained by [CNumR](https://collectif.greenit.fr/), a french
 for a responsible design of digital services. You can find all applicable rules in
 the [main ecoCode repository](https://github.com/green-code-initiative/ecoCode/tree/main/docs/rules).
 
-> ⚠️ These plugins are in a very early stage and need improvements. Any contribution will be appreciated.
+> ⚠️ This project is still in testing stage and need improvements. Any contribution will be appreciated.
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
-[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](https://github.com/green-code-initiative/ecoCode-common/blob/main/doc/CODE_OF_CONDUCT.md)
+![Build](https://github.com/green-code-initiative/ecoCode-javascript/actions/workflows/build.yml/badge.svg)
 [![Sonar Quality gate](https://img.shields.io/sonar/quality_gate/green-code-initiative_ecoCode-linter?server=https%3A%2F%2Fsonarcloud.io)](https://sonarcloud.io/project/overview?id=green-code-initiative_ecoCode-linter)
 
-📣 Why linters?
-----------------
-
-This repository contains multiple linters that each support a different set of programming languages. They are separated
-from each other and are designed primarily to analyze static code that the SonarQube scanner cannot process. They can
-however be used, modified and published independently of our ecoCode plugins.
-
-The purpose of these linters is twofold: to allow code smells to be found as soon as it is written using standard
-techonologies, and also to trace these reports back into SonarQube. This way we can make up for a SonarQube lack by
-improving feedback to developers. It's a good deal! And the use is not more complex.
-
-🌿 Use with our SonarQube plugins
+🌿 SonarQube plugin
 ---------------------------------
 
-Linters in this repository are primally designed to work with our SonarQube plugins.\
-Check one of the guides below to install a SonarQube plugin and its associated linter:
+_ecoCode_ JavaScript is an "eco-responsibility" static code analyzer for projects based on the JavaScript ecosystem. It
+can handle JavaScript, TypeScript and all frameworks that use them. Its main purpose is to work with website source
+code, but it can also analyze back-end code.
 
-- [JavaScript plugin guide](https://github.com/green-code-initiative/ecoCode/blob/main/javascript-plugin/README.md)
-- More to come..
+This project proposes rules for the following technologies:
 
-🔧 Use as standalone linters
-----------------------------
+- JavaScript
+- TypeScript
+- NestJS
 
-If you don't want to integrate rules into SonarQube, you are free to do so.\
-Plugins are working nicely on their own! Follow instructions in the dedicated README files.
+🔧 ESLint plugin
+----------------
 
-- [JavaScript/TypeScript linter using ESLint](eslint-plugin/README.md)
-- More to come..
+This project uses an internal ESLint plugin to analyze your source code.
+
+If you are not using SonarQube, we have a solution for you: the linter is working nicely on its own! \
+Follow instructions in the [dedicated README file](eslint-plugin/README.md) to use it as a standalone plugin.
 
 🛒 Distribution
 ---------------
 
-SonarQube plugins can be downloaded from _ecoCode_ repository.\
-Linters are available as dedicated NPM packages.
+[![sonar-plugin version](https://img.shields.io/github/v/release/green-code-initiative/ecoCode-javascript?label=SonarQube%20plugin)](https://github.com/green-code-initiative/ecoCode-javascript/releases/latest)
+[![eslint-plugin version](https://img.shields.io/npm/v/@ecocode/eslint-plugin?label=ESLint%20plugin)](https://npmjs.com/package/@ecocode/eslint-plugin)
 
-| SonarQube plugin                                | Linter name                                       | Latest version                                                                                                                    |
-|:------------------------------------------------|:--------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------|
-| [JavaScript/TypeScript][ecoCode-latest-release] | [@ecocode/eslint-plugin](eslint-plugin/README.md) | [![eslint-plugin version](https://img.shields.io/npm/v/@ecocode/eslint-plugin)](https://npmjs.com/package/@ecocode/eslint-plugin) |
+Ready to use binaries for SonarQube are
+available [from GitHub](https://github.com/green-code-initiative/ecoCode-javascript/releases). \
+Make sure to place the binary inside `extensions/plugins/` folder of your SonarQube instance.
 
-You can follow changelogs on [GitHub Releases page](https://github.com/green-code-initiative/ecoCode-linter/releases).
+The standalone version of the ESLint plugin is available from [npmjs](https://npmjs.com/package/@ecocode/eslint-plugin).
+
+🧩 Compatibility
+----------------
+
+| Plugins Version | SonarQube version | ESLint version |
+|-----------------|-------------------|----------------|
+| 1.3.+           | 9.4.+ LTS to 10.1 | 7+             |
 
 🤝 Contribution
 ---------------
 
-You have an idea or you want to help us improving these linters? \
+You have an idea or you want to help us improving this project? \
 We are open to your suggestions and contributions! Open an issue or PR 🚀
 
 Check out the [CONTRIBUTING.md](CONTRIBUTING.md) file
 and follow the various guides to start contributing.
-
-[ecoCode-latest-release]: https://github.com/green-code-initiative/ecoCode/releases/latest
