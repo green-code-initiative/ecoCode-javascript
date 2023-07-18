@@ -10,10 +10,6 @@ This rule aims to reduce weight of programs by using only needed modules. Many l
 default, but some of them are exporting ES modules or submodules. We should use them to select more precisly needed
 modules and avoid unnecessarily overloading files weight.
 
-![Example with lodash](https://raw.githubusercontent.com/green-code-initiative/ecoCode-linter/main/eslint-plugin/docs/images/no-import-all-from-library.jpg)
-
-*Example with the well-known [lodash](https://lodash.com/) library, if you only need "isEmpty" method.*
-
 ## Options
 
 You can externally add your own libraries to be checked.
@@ -48,6 +44,15 @@ import * as lodash from "lodash";
 import _ from "underscore";
 ```
 
+**Size of your bundle, if you use the whole lodash library:**
+
+* **index.js - 531.46 KB**
+    * node_modules/lodash - 531.35 KB
+        * lodash.js - 531.35 KB
+    * index.js - 112 B
+
+---
+
 Examples of **compliant** code for this rule:
 
 ```js
@@ -58,3 +63,13 @@ import intersect from "lodash/intersect";
 // Example with underscore (uses esm modules)
 import map from "underscore/modules/map.js";
 ```
+
+Size of your bundle, if you use only the "isEmpty" method:
+
+* **index.js - 24.42 KB**
+    * node_modules/lodash - 24.31 KB
+        * isEmpty - 1.95 KB
+        * _nodeUtil.js - 995 B
+        * isArrayLike.js - 830 B
+        * ...
+    * index.js - 110 B
