@@ -60,7 +60,7 @@ module.exports = {
               e.type === "ExpressionStatement" &&
               e.expression.type === "AssignmentExpression" &&
               isNodeUseStyleProperty(e.expression.left) &&
-              e.expression.left.object.object.name === domElementName
+              e.expression.left.object.object.name === domElementName,
           );
 
           // De-duplication, prevents multiple alerts for each line involved

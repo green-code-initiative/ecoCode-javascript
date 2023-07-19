@@ -63,7 +63,7 @@ module.exports = {
 
       if (option.importByNamespaceNotAllowedLibraries) {
         notAllowedLibraries.push(
-          ...option.importByNamespaceNotAllowedLibraries
+          ...option.importByNamespaceNotAllowedLibraries,
         );
       }
     }
@@ -81,7 +81,7 @@ module.exports = {
         } else if (
           importByNamespaceNotAllowedLibraries.includes(currentLibrary) &&
           node.specifiers.some(
-            (specifier) => specifier.type === "ImportNamespaceSpecifier"
+            (specifier) => specifier.type === "ImportNamespaceSpecifier",
           )
         ) {
           context.report({

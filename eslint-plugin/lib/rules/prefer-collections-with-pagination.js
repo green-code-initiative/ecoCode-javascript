@@ -20,7 +20,7 @@ const PAGINATION_KEY_WORDS = ["page", "pagination", "paginated"];
 
 const isPaginationName = (name) => {
   return PAGINATION_KEY_WORDS.some((keyWord) =>
-    name.toLowerCase().includes(keyWord)
+    name.toLowerCase().includes(keyWord),
   );
 };
 
@@ -35,7 +35,7 @@ const isPaginated = (objectType) => {
     if (
       objectType.members != null &&
       objectType.members.some(
-        (member) => member.key != null && isPaginationName(member.key.name)
+        (member) => member.key != null && isPaginationName(member.key.name),
       )
     ) {
       return true;
@@ -81,7 +81,7 @@ module.exports = {
           node.parent.parent.parent.type === "ClassDeclaration" &&
           node.parent.parent.parent.decorators.find(
             (decorator) =>
-              decorator.expression.callee.name.toLowerCase() === "controller"
+              decorator.expression.callee.name.toLowerCase() === "controller",
           )
         ) {
           const getMethod = node.parent;
