@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - [#14](https://github.com/green-code-initiative/ecoCode-javascript/pull/14) Create SonarQube plugin
 - [#12](https://github.com/green-code-initiative/ecoCode-javascript/issues/12) Pack ESLint plugin into SonarQube plugin
+- [#16](https://github.com/green-code-initiative/ecoCode-javascript/pull/16) Use centralized rules specifications
 - Backport all existing rules into SonarQube plugin
 - [#207](https://github.com/green-code-initiative/ecoCode/issues/207) Add release tag analyzis on SonarCloud
 
