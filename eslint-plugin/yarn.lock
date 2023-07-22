@@ -258,6 +258,7 @@ __metadata:
     eslint-config-prettier: ^8.8.0
     eslint-doc-generator: ^1.4.3
     eslint-plugin-eslint-plugin: ^5.1.1
+    eslint-plugin-license-header: ^0.6.0
     eslint-plugin-node: ^11.1.0
     eslint-plugin-prettier: ^5.0.0
     mkdirp: ^3.0.1
@@ -1575,6 +1576,15 @@ __metadata:
   peerDependencies:
     eslint: ">=7.0.0"
   checksum: a76e66708d8b79f4703a0722d7ed5e53af978c588fb60fe47936a32b377c08e3b2cf92f51180414d70be02d66f7fef0a3dad65d2e7b27873f24292e6923b7aee
+  languageName: node
+  linkType: hard
+
+"eslint-plugin-license-header@npm:^0.6.0":
+  version: 0.6.0
+  resolution: "eslint-plugin-license-header@npm:0.6.0"
+  dependencies:
+    requireindex: ^1.2.0
+  checksum: 7508fcedc4059189922e4d8c1e9c416305a8901c6b5f5f1121f107c3b87e216a877d9e268d35268e0cff129d09837619380866984213b7891c824d13555e3406
   languageName: node
   linkType: hard
 
@@ -3963,6 +3973,13 @@ __metadata:
   version: 2.0.0
   resolution: "require-main-filename@npm:2.0.0"
   checksum: e9e294695fea08b076457e9ddff854e81bffbe248ed34c1eec348b7abbd22a0d02e8d75506559e2265e96978f3c4720bd77a6dad84755de8162b357eb6c778c7
+  languageName: node
+  linkType: hard
+
+"requireindex@npm:^1.2.0":
+  version: 1.2.0
+  resolution: "requireindex@npm:1.2.0"
+  checksum: 50d8b10a1ff1fdf6aea7a1870bc7bd238b0fb1917d8d7ca17fd03afc38a65dcd7a8a4eddd031f89128b5f0065833d5c92c4fef67f2c04e8624057fe626c9cf94
   languageName: node
   linkType: hard
 
