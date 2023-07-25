@@ -60,6 +60,7 @@ Add `@ecocode` to the `plugins` section of your `.eslintrc`, followed by rules c
 | :------------------------------------------------------------------------------------- | :--------------------------------------------------------- | :- |
 | [avoid-css-animations](docs/rules/avoid-css-animations.md)                             | Avoid usage of CSS animations                              | ✅  |
 | [avoid-high-accuracy-geolocation](docs/rules/avoid-high-accuracy-geolocation.md)       | Avoid using high accuracy geolocation in web applications. | ✅  |
+| [limit-db-query-results](docs/rules/limit-db-query-results.md)                         | Should limit the number of returns for a SQL query         | ✅  |
 | [no-empty-image-src-attribute](docs/rules/no-empty-image-src-attribute.md)             | Disallow usage of image with empty source attribute        | ✅  |
 | [no-import-all-from-library](docs/rules/no-import-all-from-library.md)                 | Should not import all from library                         | ✅  |
 | [no-multiple-access-dom-element](docs/rules/no-multiple-access-dom-element.md)         | Disallow multiple access of same DOM element.              | ✅  |
