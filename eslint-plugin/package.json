@@ -17,6 +17,9 @@
   "license": "GPL-3.0",
   "author": "Green Code Initiative",
   "main": "./lib/standalone.js",
+  "files": [
+    "lib"
+  ],
   "scripts": {
     "clean": "rimraf dist",
     "lint": "npm-run-all \"lint:*\"",
