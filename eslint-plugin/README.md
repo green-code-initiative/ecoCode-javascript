@@ -66,6 +66,7 @@ Add `@ecocode` to the `plugins` section of your `.eslintrc`, followed by rules c
 | [no-multiple-access-dom-element](docs/rules/no-multiple-access-dom-element.md)         | Disallow multiple access of same DOM element.              | ✅  |
 | [no-multiple-style-changes](docs/rules/no-multiple-style-changes.md)                   | Disallow multiple style changes at once.                   | ✅  |
 | [prefer-collections-with-pagination](docs/rules/prefer-collections-with-pagination.md) | Prefer API collections with pagination.                    | ✅  |
+| [prefer-shorthand-css-notations](docs/rules/prefer-shorthand-css-notations.md)         | Encourage usage of shorthand CSS notations                 | ✅  |
 | [provide-print-css](docs/rules/provide-print-css.md)                                   | Enforce providing a print stylesheet                       | ✅  |
 
 <!-- end auto-generated rules list -->
