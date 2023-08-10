@@ -60,6 +60,7 @@ Add `@ecocode` to the `plugins` section of your `.eslintrc`, followed by rules c
 | :------------------------------------------------------------------------------------- | :--------------------------------------------------------- | :- |
 | [avoid-high-accuracy-geolocation](docs/rules/avoid-high-accuracy-geolocation.md)       | Avoid using high accuracy geolocation in web applications. | ✅  |
 | [no-import-all-from-library](docs/rules/no-import-all-from-library.md)                 | Should not import all from library                         | ✅  |
+| [provide-print-css](docs/rules/provide-print-css.md)                             | Enforce providing a print stylesheet                       | ✅  |
 | [no-multiple-access-dom-element](docs/rules/no-multiple-access-dom-element.md)         | Disallow multiple access of same DOM element.              | ✅  |
 | [no-multiple-style-changes](docs/rules/no-multiple-style-changes.md)                   | Disallow multiple style changes at once.                   | ✅  |
 | [prefer-collections-with-pagination](docs/rules/prefer-collections-with-pagination.md) | Prefer API collections with pagination.                    | ✅  |

@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- [#22](https://github.com/green-code-initiative/ecoCode-javascript/pull/22) Add rule `@ecocode/provide-print-css`
 - [#14](https://github.com/green-code-initiative/ecoCode-javascript/pull/14) Create SonarQube plugin
 - [#12](https://github.com/green-code-initiative/ecoCode-javascript/issues/12) Pack ESLint plugin into SonarQube plugin
 - [#16](https://github.com/green-code-initiative/ecoCode-javascript/pull/16) Use centralized rules specifications
