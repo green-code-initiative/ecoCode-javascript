@@ -1,0 +1,26 @@
+# Disallow usage of image with empty source attribute (`@ecocode/no-empty-image-src-attribute`)
+
+⚠️ This rule _warns_ in the ✅ `recommended` config.
+
+<!-- end auto-generated rule header -->
+
+## Rule Details
+
+This rule aims to prohibit the usage of <img/> without specifying its source attribute because it causes extra and unnecessary http requests. This rule is build for the [react library](https://react.dev/) and JSX.
+
+## Examples
+
+Examples of **non compliant** code for this rule:
+
+```js
+<img src='' />
+<img/>
+```
+
+Examples of **compliant** code for this rule:
+
+```js
+import imgSvg from './img.svg'
+<img src='./img.svg' />
+<img src={imgSvg} />
+```
