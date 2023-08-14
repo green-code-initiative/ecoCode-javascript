@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
-- [#20](https://github.com/green-code-initiative/ecoCode-javascript/pull/20) Add rule `@ecocode/prefer-shorthand-css-notations`
+- [#20](https://github.com/green-code-initiative/ecoCode-javascript/pull/20) Add rules `@ecocode/prefer-shorthand-css-notations-*`
 - [#14](https://github.com/green-code-initiative/ecoCode-javascript/pull/14) Create SonarQube plugin
 - [#21](https://github.com/green-code-initiative/ecoCode-javascript/pull/21) Add rule `@ecocode/avoid-css-animations`
 - [#18](https://github.com/green-code-initiative/ecoCode-javascript/pull/18) Add rule `@ecocode/limit-db-query-results`

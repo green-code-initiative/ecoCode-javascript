@@ -20,7 +20,7 @@
 // Requirements
 //------------------------------------------------------------------------------
 
-const rule = require("../../../lib/rules/prefer-shorthand-css-notations");
+const rule = require("../../../lib/rules/prefer-shorthand-css-notations-content");
 const RuleTester = require("eslint").RuleTester;
 
 //------------------------------------------------------------------------------
@@ -40,35 +40,30 @@ const ruleTester = new RuleTester({
 ruleTester.run("prefer-shorthand-css-notations", rule, {
   valid: [
     `
-    <div style={{ margin: "10px 3px 8px 5px" }}> {/* Your content here */} </div>
+    <div style={{ outline: "inset thick" }}> {/* Your content here */} </div>
+    `,
+    `
+    <div style={{ border: "2px dotted" }}> {/* Your content here */} </div>
+    `,
+    `
+    <div style={{ background: "border-box red" }}> {/* Your content here */} </div>
+    `,
+    `
+    <div style={{ listStyle: "georgian inside" }}> {/* Your content here */} </div>
     `,
   ],
 
   invalid: [
     {
-      code: "<div style={{ marginTop: 10, marginBottom: 8, marginRight: 3, marginLeft: 5 }}> {/* Your content here */} </div>",
-      errors: [
-        {
-          messageId: "PreferShorthandCSSNotationMargin",
-          type: "Property",
-        },
-      ],
-    },
-    {
-      code: "<div style={{ paddingTop: 10, paddingBottom: 8, paddingRight:3, paddingLeft:5 }}> {/* Your content here */} </div>",
-      errors: [
-        {
-          messageId: "PreferShorthandCSSNotationPadding",
-          type: "Property",
-        },
-      ],
-    },
-    {
       code: " <div style={{outlineWidth:1, outlineStyle: 'solid', outlineColor: '#000000'}}/>",
       errors: [
         {
-          messageId: "PreferShorthandCSSNotationOutline",
-          type: "Property",
+          messageId: "PreferShorthandCSSNotation",
+          type: "JSXAttribute",
+          data: {
+            attribute: "outline",
+            value: `outline: outlineColor outlineStyle outlineWidth`,
+          },
         },
       ],
     },
@@ -76,26 +71,25 @@ ruleTester.run("prefer-shorthand-css-notations", rule, {
       code: "<div style={{borderWidth:1, borderStyle: 'solid', borderColor: '#000000'}}/>",
       errors: [
         {
-          messageId: "PreferShorthandCSSNotationBorder",
-          type: "Property",
+          messageId: "PreferShorthandCSSNotation",
+          type: "JSXAttribute",
+          data: {
+            attribute: "border",
+            value: `border: lineWidth lineStyle color`,
+          },
         },
       ],
     },
     {
-      code: "<h1 style={{fontStyle:'italic', fontWeight: 'bold', fontSize:18, lineHeight:'150%', fontFamily: 'Arial,sans-serif'}}/>",
+      code: "<div style={{backgroundColor:'#000', backgroundImage: 'url(images/bg.png)', backgroundRepeat: 'no-repeat', backgroundPosition:'left top'}}/>",
       errors: [
         {
-          messageId: "PreferShorthandCSSNotationFont",
-          type: "Property",
-        },
-      ],
-    },
-    {
-      code: "<div style={{backgroundColor:'#000', backgroundImage: url(images/bg.png), backgroundRepeat: 'no-repeat', backgroundPosition:'left top'}}/>",
-      errors: [
-        {
-          messageId: "PreferShorthandCSSNotationBackground",
-          type: "Property",
+          messageId: "PreferShorthandCSSNotation",
+          type: "JSXAttribute",
+          data: {
+            attribute: "background",
+            value: `background: backgroundImage backgroundPosition backgroundColor backgroundRepeat`,
+          },
         },
       ],
     },
@@ -103,8 +97,12 @@ ruleTester.run("prefer-shorthand-css-notations", rule, {
       code: "<ul style={{listStyleType:'disc', listStylePosition: 'inside', listStyleImage: 'url(disc.png)'}}/>",
       errors: [
         {
-          messageId: "PreferShorthandCSSNotationList",
-          type: "Property",
+          messageId: "PreferShorthandCSSNotation",
+          type: "JSXAttribute",
+          data: {
+            attribute: "listStyle",
+            value: `listStyle: listStylePosition listStyleImage listStyleType`,
+          },
         },
       ],
     },
