@@ -14,6 +14,8 @@ env:
 jobs:
   publish-npm:
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
     steps:
       - name: Checkout tag "${{ github.ref_name }}"
         uses: actions/checkout@v3
@@ -34,7 +36,7 @@ jobs:
         run: cp LICENSE.md eslint-plugin/
 
       - name: Publish package on NPM
-        run: npm publish --access public
+        run: npm publish --provenance --access public
         working-directory: eslint-plugin
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
