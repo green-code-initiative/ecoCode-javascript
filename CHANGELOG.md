@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+
 - [#21](https://github.com/green-code-initiative/ecoCode-javascript/pull/21) Add rule `@ecocode/avoid-css-animations`
 - [#19](https://github.com/green-code-initiative/ecoCode-javascript/pull/19) add rule `@ecocode/no-empty-image-src-attribute`
 - [#18](https://github.com/green-code-initiative/ecoCode-javascript/pull/18) add rule `@ecocode/limit-db-query-results`
