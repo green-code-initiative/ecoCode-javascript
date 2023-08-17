@@ -38,7 +38,7 @@ module.exports = {
           (attribute) => attribute.name.name === "style",
         );
 
-        if (styleAttribute != null) {
+        if (styleAttribute && styleAttribute.value.expression) {
           // To prevent (for example) <div style={{ animate: 'width 2s' }}>
           const property = styleAttribute.value.expression.properties.find(
             (prop) =>

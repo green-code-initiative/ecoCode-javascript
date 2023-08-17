@@ -50,6 +50,7 @@ ruleTester.run("avoid-css-animations", rule, {
     export default MyComponent;
     `,
     `<div style={{ width: '100px', height: '100px' }}>Hello world</div>`,
+    `<div style="border: 2px solid red">My red element</div>`,
   ],
 
   invalid: [
