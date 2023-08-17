@@ -6,19 +6,26 @@
 
 ## Rule Details
 
-This rule aims to limit the usage of all types of CSS animations which can be very costly in terms of CPU and memory. 
-They must only be used when they are indispensable and should be limited to the CSS properties `opacity` and `transform` with it's associated functions : `translate`, `rotate` and `scale`.
-You can also inform the navigator of upcoming changes with the `will-change` instruction for more optimization.
+This rule aims to limit the usage of all types of CSS animations which can be very costly in terms of CPU and memory.
+They must only be used when they are indispensable and should be limited to the CSS properties `opacity` and `transform`
+with it's associated functions : `translate`, `rotate` and `scale`. You can also inform the navigator of upcoming
+changes with the `will-change` instruction for more optimization.
 
 ## Examples
+
 Examples of **non compliant** code for this rule:
 
 ```js
-<div style={{borderWidth:1, borderStyle: 'solid', borderColor: '#000000', transform:'translate(20px)'}}/>
+<div style={{ border: "1px solid black", transition: "border 2s ease" }}/>
 ```
 
 Examples of **compliant** code for this rule:
 
 ```js
-<div style={{borderWidth:1, borderStyle: 'solid', borderColor: '#000000'}}/>
+<div style={{ border: "1px solid black" }}/>
 ```
+
+## Further details
+
+This recommendation is made by the
+CNUMR: [Avoid JavaScript / CSS animations](https://github.com/cnumr/best-practices/blob/main/chapters/BP_039_en.md)

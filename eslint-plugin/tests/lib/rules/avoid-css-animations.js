@@ -49,6 +49,7 @@ ruleTester.run("avoid-css-animations", rule, {
 
     export default MyComponent;
     `,
+    `<div style={{ width: '100px', height: '100px' }}>Hello world</div>`,
   ],
 
   invalid: [

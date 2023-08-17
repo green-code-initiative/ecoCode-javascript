@@ -30,27 +30,28 @@ module.exports = {
     },
     schema: [],
   },
-
   create(context) {
+    const forbiddenProperties = ["transition", "animation"];
     return {
       JSXOpeningElement(node) {
-        if (node.attributes.find((attr) => attr.name.name === "style")) {
-          const styleProp = node.attributes.find(
-            (attr) => attr.name.name === "style",
-          );
+        const styleAttribute = node.attributes.find(
+          (attribute) => attribute.name.name === "style",
+        );
 
-          // To prevent (for example) <div style={{ transform: rotate(30deg) }}>
-          const transformValue = styleProp.value.expression.properties.find(
+        if (styleAttribute != null) {
+          // To prevent (for example) <div style={{ animate: 'width 2s' }}>
+          const property = styleAttribute.value.expression.properties.find(
             (prop) =>
-              prop.key.name.includes("transition") ||
-              prop.key.name.includes("animation"),
+              forbiddenProperties.some((forbidProp) =>
+                prop.key.name.includes(forbidProp),
+              ),
           );
-          if (transformValue && transformValue.value) {
+          if (property != null) {
             context.report({
-              node: transformValue,
+              node: property,
               messageId: "AvoidCSSAnimations",
               data: {
-                attribute: transformValue.key.name,
+                attribute: property.key.name,
               },
             });
           }
