@@ -30,6 +30,7 @@ This project proposes rules for the following technologies:
 - JavaScript
 - TypeScript
 - NestJS
+- React (JSX)
 
 🔧 ESLint plugin
 ----------------
@@ -56,7 +57,7 @@ The standalone version of the ESLint plugin is available from [npmjs](https://np
 
 | Plugins Version | SonarQube version | ESLint version |
 |-----------------|-------------------|----------------|
-| 1.3.+           | 9.4.+ LTS to 10.1 | 7+             |
+| 1.4.+           | 9.4.+ LTS to 10.1 | 7+             |
 
 🤝 Contribution
 ---------------
@@ -66,3 +67,8 @@ We are open to your suggestions and contributions! Open an issue or PR 🚀
 
 Check out the [CONTRIBUTING.md](CONTRIBUTING.md) file
 and follow the various guides to start contributing.
+
+Thank you to all the people who already contributed to ecoCode-javascript!
+
+- Elise Dubillot
+- Laetitia Bézie
