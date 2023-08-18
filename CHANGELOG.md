@@ -9,18 +9,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- [#22](https://github.com/green-code-initiative/ecoCode-javascript/pull/22) Add rule `@ecocode/provide-print-css`
-- [#19](https://github.com/green-code-initiative/ecoCode-javascript/pull/19) add rule `@ecocode/no-empty-image-src-attribute`
-- [#18](https://github.com/green-code-initiative/ecoCode-javascript/pull/18) add rule `@ecocode/limit-db-query-results`
 - [#14](https://github.com/green-code-initiative/ecoCode-javascript/pull/14) Create SonarQube plugin
-- [#12](https://github.com/green-code-initiative/ecoCode-javascript/issues/12) Pack ESLint plugin into SonarQube plugin
-- [#16](https://github.com/green-code-initiative/ecoCode-javascript/pull/16) Use centralized rules specifications
-- Backport all existing rules into SonarQube plugin
+- [#21](https://github.com/green-code-initiative/ecoCode-javascript/pull/21) Add rule `@ecocode/avoid-css-animations`
+- [#18](https://github.com/green-code-initiative/ecoCode-javascript/pull/18) Add rule `@ecocode/limit-db-query-results`
+- [#19](https://github.com/green-code-initiative/ecoCode-javascript/pull/19) Add rule `@ecocode/no-empty-image-src-attribute`
+- [#22](https://github.com/green-code-initiative/ecoCode-javascript/pull/22) Add rule `@ecocode/provide-print-css`
 - [#207](https://github.com/green-code-initiative/ecoCode/issues/207) Add release tag analyzis on SonarCloud
 
 ### Changed
 
+- [#12](https://github.com/green-code-initiative/ecoCode-javascript/issues/12) Pack ESLint plugin into SonarQube plugin
+- [#16](https://github.com/green-code-initiative/ecoCode-javascript/pull/16) Use centralized rules specifications
 - Update release process through GitHub Actions
+- Backport all existing rules into SonarQube plugin
 
 ## [0.2.0] - 2023-05-29
 
