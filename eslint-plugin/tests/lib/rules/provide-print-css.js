@@ -36,6 +36,7 @@ const ruleTester = new RuleTester({
     },
   },
 });
+
 const expectedError = {
   messageId: "noPrintCSSProvided",
   type: "JSXElement",
@@ -44,28 +45,50 @@ const expectedError = {
 ruleTester.run("provide-print-css", rule, {
   valid: [
     `
-    <link rel="stylesheet" href="styles.css" media="print" />
-
+    <head>
+      <title>Web Page</title>
+      <link rel="stylesheet" href="styles.css" media="print" />
+    </head>
     `,
     `
-    <style>
-    @media print {
-      /* Print-specific styles */
-    }
-    </style>
+    <head>
+      <title>Web Page</title>
+      <style>@media print {}</style>
+    </head>
     `,
     `
-    {<link rel="stylesheet" href="styles.css" media="print" />,
-    <style>
-      @media print {
-        /* Print-specific styles */
-      }
-    </style>}    
+    <head>
+      <title>Web Page</title>
+      <style>{'@media print {}'}</style>
+    </head>
     `,
+    `
+    <head>
+      <title>Web Page</title>
+      <link rel="stylesheet" href="styles.css" media="print" />,
+      <style>{'@media print {}'}</style>
+    </head>   
+    `,
+    "<head><style>{`@media print {}`}</style></head>",
+    `<link rel="stylesheet" href="styles.css" />`,
   ],
   invalid: [
     {
-      code: `<link rel="stylesheet" href="styles.css" />`,
+      code: `
+        <head>
+          <title>Web Page</title>
+          <link rel="stylesheet" href="styles.css" />
+        </head>
+      `,
+      errors: [expectedError],
+    },
+    {
+      code: `
+        <head>
+          <title>Web Page</title>
+          <style>{'@media desktop {}'}</style>
+        </head>
+      `,
       errors: [expectedError],
     },
   ],

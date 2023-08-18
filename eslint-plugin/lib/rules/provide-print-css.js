@@ -16,7 +16,7 @@
  */
 "use strict";
 
-/** @type {import('eslint').Rule.RuleModule} */
+/** @type {import("eslint").Rule.RuleModule} */
 module.exports = {
   meta: {
     type: "suggestion",
@@ -31,38 +31,50 @@ module.exports = {
     schema: [],
   },
   create(context) {
-    // Track scanned files
-    const scannedFiles = new Set();
+    const isStyleWithPrintNode = (node) => {
+      return (
+        node.openingElement.name.name === "style" &&
+        node.children.some((child) => {
+          let element = null;
+          if (child.value != null) {
+            element = child.value;
+          } else if (child.expression != null) {
+            if (child.expression.value != null) {
+              element = child.expression.value;
+            } else if (
+              child.expression.quasis != null &&
+              child.expression.quasis.length > 0
+            ) {
+              element = child.expression.quasis[0].value.cooked;
+            }
+          }
+          return element != null && element.includes("@media print");
+        })
+      );
+    };
+
+    const isLinkForPrintNode = (node) =>
+      node.openingElement.name.name === "link" &&
+      node.openingElement.attributes.some(
+        (attr) => attr.name.name === "media" && attr.value.value === "print",
+      );
+
     return {
       JSXElement(node) {
-        const filePath = context.getFilename();
+        if (node.openingElement.name.name === "head") {
+          const hasValidElement = node.children.some(
+            (child) =>
+              child.openingElement != null &&
+              (isStyleWithPrintNode(child) || isLinkForPrintNode(child)),
+          );
 
-        // Skip if file has already been scanned
-        if (scannedFiles.has(filePath)) {
-          return;
+          if (!hasValidElement) {
+            context.report({
+              node: node,
+              messageId: "noPrintCSSProvided",
+            });
+          }
         }
-
-        // Mark file as scanned
-        scannedFiles.add(filePath);
-        if (
-          node.openingElement.name.name === "link" &&
-          node.openingElement.attributes.some(
-            (attr) =>
-              attr.name.name === "media" && attr.value.value === "print",
-          )
-        ) {
-          return;
-        } else if (
-          node.openingElement.name.name === "style" &&
-          node.children.some((child) => child.value.includes("@media print"))
-        ) {
-          return;
-        }
-
-        context.report({
-          node: node,
-          messageId: "noPrintCSSProvided",
-        });
       },
     };
   },
