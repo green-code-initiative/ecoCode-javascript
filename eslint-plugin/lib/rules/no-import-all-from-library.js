@@ -54,7 +54,7 @@ module.exports = {
     const notAllowedLibraries = ["lodash", "underscore"];
     const importByNamespaceNotAllowedLibraries = ["lodash-es"];
 
-    if (context.options && context.options.length > 0) {
+    if (context.options?.length > 0) {
       const option = context.options[0];
 
       if (option.notAllowedLibraries) {

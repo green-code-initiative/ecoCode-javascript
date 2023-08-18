@@ -45,8 +45,7 @@ module.exports = {
     return {
       CallExpression(node) {
         if (
-          node.callee.object &&
-          node.callee.object.name === "document" &&
+          node.callee.object?.name === "document" &&
           DOMAccessMethods.includes(node.callee.property.name)
         ) {
           const selectorValue = node.arguments[0].value;

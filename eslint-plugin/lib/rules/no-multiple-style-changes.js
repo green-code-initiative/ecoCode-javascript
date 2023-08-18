@@ -33,12 +33,7 @@ module.exports = {
   },
   create: function (context) {
     function isNodeUseStyleProperty(node) {
-      return (
-        node != null &&
-        node.object != null &&
-        node.object.property != null &&
-        node.object.property.name === "style"
-      );
+      return node?.object?.property?.name === "style";
     }
 
     return {

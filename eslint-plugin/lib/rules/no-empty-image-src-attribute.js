@@ -38,7 +38,7 @@ module.exports = {
           const srcValue = node.attributes.find(
             (attr) => attr.name.name === "src",
           );
-          if (srcValue && srcValue.value && srcValue.value.value === "") {
+          if (srcValue?.value?.value === "") {
             //to prevent <img src='' alt='Empty image'/>
             context.report({
               node: srcValue,

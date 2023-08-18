@@ -34,9 +34,8 @@ module.exports = {
     return {
       Property(node) {
         if (
-          node &&
-          node.key.name === "enableHighAccuracy" &&
-          node.value.value === true
+          node?.key.name === "enableHighAccuracy" &&
+          node?.value.value === true
         ) {
           context.report({ node, messageId: "AvoidUsingAccurateGeolocation" });
         }
