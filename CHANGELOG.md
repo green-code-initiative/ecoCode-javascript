@@ -10,11 +10,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - [#14](https://github.com/green-code-initiative/ecoCode-javascript/pull/14) Create SonarQube plugin
-- [#21](https://github.com/green-code-initiative/ecoCode-javascript/pull/21) Add rule `@ecocode/avoid-css-animations`
-- [#18](https://github.com/green-code-initiative/ecoCode-javascript/pull/18) Add rule `@ecocode/limit-db-query-results`
-- [#19](https://github.com/green-code-initiative/ecoCode-javascript/pull/19) Add rule `@ecocode/no-empty-image-src-attribute`
-- [#20](https://github.com/green-code-initiative/ecoCode-javascript/pull/20) Add rule `@ecocode/prefer-shorthand-css-notations`
-- [#22](https://github.com/green-code-initiative/ecoCode-javascript/pull/22) Add rule `@ecocode/provide-print-css`
+- [#21](https://github.com/green-code-initiative/ecoCode-javascript/pull/21) Add rule `@ecocode/avoid-css-animations` (EC29)
+- [#18](https://github.com/green-code-initiative/ecoCode-javascript/pull/18) Add rule `@ecocode/limit-db-query-results` (EC24)
+- [#19](https://github.com/green-code-initiative/ecoCode-javascript/pull/19) Add rule `@ecocode/no-empty-image-src-attribute` (EC25)
+- [#20](https://github.com/green-code-initiative/ecoCode-javascript/pull/20) Add rule `@ecocode/prefer-shorthand-css-notations` (EC26)
+- [#22](https://github.com/green-code-initiative/ecoCode-javascript/pull/22) Add rule `@ecocode/provide-print-css` (EC30)
 - [#25](https://github.com/green-code-initiative/ecoCode-javascript/pull/25) Add license headers
 - [ecoCode#207](https://github.com/green-code-initiative/ecoCode/issues/207) Add release tag analyzis on SonarCloud
 
