@@ -34,11 +34,16 @@ public class CheckList {
 
     public static List<Class<? extends JavaScriptCheck>> getAllChecks() {
         return Arrays.asList(
+                AvoidCSSAnimations.class,
                 AvoidHighAccuracyGeolocation.class,
+                LimitDbQueryResult.class,
+                NoEmptyImageSrcAttribute.class,
                 NoImportAllFromLibrary.class,
                 NoMultipleAccessDomElement.class,
                 NoMultipleStyleChanges.class,
-                PreferCollectionsWithPagination.class
+                PreferCollectionsWithPagination.class,
+                PreferShorthandCSSNotations.class,
+                ProvidePrintCSS.class
         );
     }
 
