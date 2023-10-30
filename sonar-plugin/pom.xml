@@ -137,7 +137,7 @@
                     <pluginKey>ecocodejavascript</pluginKey>
                     <pluginName>${project.name}</pluginName>
                     <pluginClass>io.ecocode.javascript.JavaScriptPlugin</pluginClass>
-                    <sonarLintSupported>true</sonarLintSupported>
+                    <sonarLintSupported>false</sonarLintSupported>
                     <sonarQubeMinVersion>${sonarqube.version}</sonarQubeMinVersion>
                     <skipDependenciesPackaging>true</skipDependenciesPackaging>
                     <jreMinVersion>${java.version}</jreMinVersion>
