@@ -1,5 +1,4 @@
 ![Logo](https://github.com/green-code-initiative/ecoCode/blob/main/docs/resources/logo-large.png?raw=true)
-======================================
 
 Websites are becoming increasingly heavy and complex over the years. They represent an important part
 of the digital environmental footprint. The objective of this project is to detect smells in a website source code
@@ -9,10 +8,7 @@ devices, etc. This project is part of [ecoCode](https://github.com/green-code-in
 Rules in this repository are mainly based from book
 [115 Web Ecodesign Best Practices](https://github.com/cnumr/best-practices).
 This reference is maintained by [CNumR](https://collectif.greenit.fr/), a french collective that works
-for a responsible design of digital services. You can find all applicable rules in
-the [main ecoCode repository](https://github.com/green-code-initiative/ecoCode/tree/main/docs/rules).
-
-> ⚠️ This project is still in testing stage and need improvements. Any contribution will be appreciated.
+for a responsible design of digital services. You can find all applicable rules in the [RULES.md file](RULES.md).
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 ![Build](https://github.com/green-code-initiative/ecoCode-javascript/actions/workflows/build.yml/badge.svg)
@@ -57,7 +53,7 @@ The standalone version of the ESLint plugin is available from [npmjs](https://np
 
 | Plugins Version | SonarQube version | ESLint version |
 |-----------------|-------------------|----------------|
-| 1.4.+           | 9.4.+ LTS to 10.1 | 7+             |
+| 1.4.+           | 9.4.+ LTS to 10.2 | 7+             |
 
 🤝 Contribution
 ---------------

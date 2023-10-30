@@ -25,6 +25,17 @@ npm install -D eslint @ecocode/eslint-plugin
 > our rules.\
 > Follow [this official guide](https://typescript-eslint.io/getting-started) to install it in a few steps.
 
+#### Are you working with a GitHub Packages registry?
+
+The plugin is also available from GitHub npm registry under "green-code-initiative" scope:
+
+```sh
+# yarn
+yarn add -D eslint @green-code-initiative/ecocode-eslint-plugin
+# npm
+npm install -D eslint @green-code-initiative/ecocode-eslint-plugin
+```
+
 ### Enable whole plugin
 
 Add `@ecocode` recommended configuration to `extends` section of your `.eslintrc`:
@@ -57,7 +68,7 @@ Add `@ecocode` to the `plugins` section of your `.eslintrc`, followed by rules c
 ✅ Set in the `recommended` configuration.
 
 | Name                                                                                   | Description                                                | ⚠️ |
-| :------------------------------------------------------------------------------------- | :--------------------------------------------------------- | :- |
+|:---------------------------------------------------------------------------------------|:-----------------------------------------------------------|:---|
 | [avoid-css-animations](docs/rules/avoid-css-animations.md)                             | Avoid usage of CSS animations                              | ✅  |
 | [avoid-high-accuracy-geolocation](docs/rules/avoid-high-accuracy-geolocation.md)       | Avoid using high accuracy geolocation in web applications. | ✅  |
 | [limit-db-query-results](docs/rules/limit-db-query-results.md)                         | Should limit the number of returns for a SQL query         | ✅  |
