@@ -29,7 +29,7 @@ module.exports = {
     },
     messages: {
       UseClassInstead:
-        "There are more than two style assignations for '{{elementName}}'. Use a class instead.",
+        "There are more than two style assignments for '{{elementName}}'. Use a class instead.",
     },
     schema: [],
   },
