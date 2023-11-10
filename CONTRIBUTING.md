@@ -42,9 +42,17 @@ But it can be useful to prepare a test project to check the correct execution of
 
 1. Clone the Git repository
 2. Run `yarn install` inside **eslint-plugin** directory
-3. You are good to go! 🚀
+3. Synchronize dependencies using Maven inside **sonar-plugin** directory
+4. You are good to go! 🚀
 
 ## Create a rule
+
+### Before starting
+
+Before even starting to implement the rule, it must have been discussed, mesured and documented in the ecoCode
+referential. Please follow
+the [dedicated documentation](https://github.com/green-code-initiative/ecoCode/blob/main/ecocode-rules-specifications/README.md)
+to find out how to proceed.
 
 ### In the ESLint plugin
 
@@ -66,16 +74,13 @@ The project itself uses ESLint to helps linting rule algorithms.
 
 ### In the SonarQube plugin
 
-The SonarQube plugin does not contain the implementation of rules, only declarations and documentations.
+Now that the rule has been implemented in the ecoCode referential and its implementation written in the ESLint plugin,
+all that remains is to reference it in the SonarQube plugin. Here are the simple steps:
 
-Example set of files to add a rule called **"my-awesome-rule"** (SonarQube key: **EC1**):
-
-- `src/main/java/io/ecocode/javascript/checks/MyAwesomeRule.java`: declaration file with the SonarQube key and the
-  ESLint key
-- `src/main/resources/rules/javascript/EC1.json`: detail of the rule for SonarQube
-- `src/main/resources/rules/javascript/EC1.html`: documentation of the rule for SonarQube
-
-You will also need to edit custom profile JSON file and `CheckList.java` to add your rule name in appropriate lists.
+1. Create a Java class in `src/main/java/io/ecocode/javascript/checks/` with the declaration of the SonarQube key and
+   the ESLint key (check other classes to have an example)
+2. Reference created in method `getAllChecks()` of Java class `CheckList` (please use alphabetical order)
+3. Add the SonarQube key of the rule in the appropriate profile Json file.
 
 ### Test the rule
 
@@ -88,6 +93,8 @@ This will allow a large code coverage and avoid false positives.
 
 Run the following script to start all test suites: `yarn run test`.\
 To display tests coverage, use `yarn run test:cov`.
+
+> ℹ You don't need to add a test in the Sonar plugin, the class will be tested automatically.
 
 ### Generate rule documentation
 

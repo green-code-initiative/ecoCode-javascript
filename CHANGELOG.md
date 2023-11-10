@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+-   [#30](https://github.com/green-code-initiative/ecoCode-javascript/issues/30) Fix typo in EC12 rule
+
 ## [1.4.0] - 2023-10-30
 
 ### Added
