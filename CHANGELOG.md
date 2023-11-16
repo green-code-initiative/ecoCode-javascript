@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+-   [ecoCode#185](https://github.com/green-code-initiative/ecoCode/issues/185) Add build number to manifest
+
 ### Fixed
 
 -   [#30](https://github.com/green-code-initiative/ecoCode-javascript/issues/30) Fix typo in EC12 rule
