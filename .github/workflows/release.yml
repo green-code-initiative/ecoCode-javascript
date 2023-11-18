@@ -16,32 +16,24 @@ permissions:
   contents: write
 
 env:
-  NODE_VERSION: 18.x
+  NODE_VERSION: 20.x
   JDK_VERSION: 11
 
 jobs:
-  checks:
-    name: Requirements
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check user permissions
-        uses: 74th/workflow-permission-action@1.0.0
-        with:
-          users: dedece35,glalloue,jhertout,jules-delecour-dav,olegoaer,zippy1978,utarwyn
-
   release:
     name: Create release
     runs-on: ubuntu-latest
+    if: contains('["dedece35","glalloue","jhertout","jules-delecour-dav","olegoaer","zippy1978","utarwyn"]', github.actor)
     needs: checks
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
           token: ${{ secrets.RELEASE_TOKEN }}
 
       - name: Use Node.js ${{ env.NODE_VERSION }}
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
 
@@ -111,7 +103,7 @@ jobs:
     needs: release
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           ref: ${{ github.ref }}
           token: ${{ secrets.RELEASE_TOKEN }}
