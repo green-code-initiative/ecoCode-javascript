@@ -42,7 +42,10 @@ Follow instructions in the [dedicated README file](eslint-plugin/README.md) to u
 [![sonar-plugin version](https://img.shields.io/github/v/release/green-code-initiative/ecoCode-javascript?label=SonarQube%20plugin)](https://github.com/green-code-initiative/ecoCode-javascript/releases/latest)
 [![eslint-plugin version](https://img.shields.io/npm/v/@ecocode/eslint-plugin?label=ESLint%20plugin)](https://npmjs.com/package/@ecocode/eslint-plugin)
 
-Ready to use binaries for SonarQube are
+**The plugin is available from the official SonarQube marketplace! Check the
+[version matrix here](https://docs.sonarsource.com/sonarqube/latest/instance-administration/plugin-version-matrix/).**
+
+Ready to use binaries for SonarQube are also
 available [from GitHub](https://github.com/green-code-initiative/ecoCode-javascript/releases). \
 Make sure to place the binary inside `extensions/plugins/` folder of your SonarQube instance.
 
