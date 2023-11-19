@@ -53,16 +53,16 @@
         <version.sonarqube>9.4.0.54424</version.sonarqube>
         <version.sonar-javascript>9.13.0.20537</version.sonar-javascript>
         <version.sonar-packaging>1.23.0.740</version.sonar-packaging>
-        <version.sonar-analyzer-commons>2.5.0.1358</version.sonar-analyzer-commons>
+        <version.sonar-analyzer-commons>2.7.0.1482</version.sonar-analyzer-commons>
         <version.buildnumber>3.1.0</version.buildnumber>
         <version.maven-exec>3.1.0</version.maven-exec>
         <version.maven-shade>3.4.1</version.maven-shade>
         <version.license-maven-plugin>4.1</version.license-maven-plugin>
 
-        <junit.version>5.9.3</junit.version>
-        <mockito.version>5.3.1</mockito.version>
-        <assertj.version>3.24.2</assertj.version>
-        <jacoco.version>0.8.10</jacoco.version>
+        <version.junit>5.10.1</version.junit>
+        <version.mockito>5.7.0</version.mockito>
+        <version.assertj>3.24.2</version.assertj>
+        <version.jacoco>0.8.11</version.jacoco>
     </properties>
 
     <dependencies>
@@ -98,21 +98,21 @@
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
-            <version>${junit.version}</version>
+            <version>${version.junit}</version>
             <scope>test</scope>
         </dependency>
 
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-junit-jupiter</artifactId>
-            <version>${mockito.version}</version>
+            <version>${version.mockito}</version>
             <scope>test</scope>
         </dependency>
 
         <dependency>
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>
-            <version>${assertj.version}</version>
+            <version>${version.assertj}</version>
             <scope>test</scope>
         </dependency>
 
@@ -235,7 +235,7 @@
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
-                <version>${jacoco.version}</version>
+                <version>${version.jacoco}</version>
                 <configuration>
                     <output>file</output>
                     <append>false</append>
