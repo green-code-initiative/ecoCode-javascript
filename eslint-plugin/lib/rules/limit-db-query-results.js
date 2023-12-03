@@ -35,7 +35,13 @@ module.exports = {
   },
   create(context) {
     //list of limiting clauses to check against
-    const limitingClauses = ["LIMIT", "TOP", "ROW_NUMBER", "FETCH FIRST"];
+    const limitingClauses = [
+      "LIMIT",
+      "TOP",
+      "ROW_NUMBER",
+      "FETCH FIRST",
+      "WHERE",
+    ];
     return {
       Literal: function (node) {
         if (typeof node.value == "string") {

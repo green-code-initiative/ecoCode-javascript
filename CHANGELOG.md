@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+-   [#30](https://github.com/green-code-initiative/ecoCode-javascript/issues/30) EC24: define the WHERE clause as a limiting keyword
 -   [ecoCode#185](https://github.com/green-code-initiative/ecoCode/issues/185) Add build number to manifest
 
 ### Fixed

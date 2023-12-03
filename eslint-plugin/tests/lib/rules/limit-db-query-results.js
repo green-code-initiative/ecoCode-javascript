@@ -42,10 +42,13 @@ const expectedError = {
 ruleTester.run("limit-db-query-results", rule, {
   valid: [
     `
-      const query = "SELECT * FROM customers LIMIT 10;";
+      const query = "SELECT id, name, email FROM customers LIMIT 10;";
     `,
     `
       const query = "SELECT TOP 5 * FROM products;";
+    `,
+    `
+      const query = "SELECT id, name, email FROM customers WHERE id = 1;";
     `,
     `
       const query = "SELECT * FROM orders FETCH FIRST 20 ROWS ONLY;";    
