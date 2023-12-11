@@ -4,23 +4,40 @@
 
 <!-- end auto-generated rule header -->
 
-## Rule details
+## Why is this an issue?
 
-This rule aims to reduce DOM access assigning its object to variable when access multiple time. It saves CPU cycles.
+Accessing the Document Object Model (DOM) is a relatively expensive operation in terms of performance.
+Each time you access the DOM, the browser needs to traverse the document tree to find the requested element.
+By assigning the DOM object to a variable when accessed multiple times, you avoid redundant traversals, leading to
+improved performance.
 
-## Examples
+Assigning the DOM object to a variable not only improves performance but also enhances code readability.
+It makes the code more concise and self-explanatory.
+Developers reading the code can understand that the variable holds a reference to a specific DOM element, and its
+subsequent use is likely for multiple operations.
 
-Examples of **incorrect** code for this rule:
+Here's an example in JavaScript to illustrate this rule:
 
 ```js
-var el1 = document.getElementById("block1").test1;
-var el2 = document.getElementById("block1").test2;
+const width = document.getElementById('block').clientWidth;
+const height = document.getElementById('block').clientHeight; // Non-compliant
 ```
-
-Examples of **correct** code for this rule:
 
 ```js
-var blockElement = document.getElementById("block1");
-var el1 = blockElement.test1;
-var el2 = blockElement.test2;
+const blockElement = document.getElementById('block'); // Compliant
+const width = blockElement.clientWidth;
+const height = blockElement.clientHeight;
 ```
+
+In the first example, getElementById is called twice, potentially resulting in two separate traversals of the DOM tree.
+In the second example, the DOM element reference is cached in the `blockElement` variable, and subsequent property
+accesses use this cached reference.
+
+## Resources
+
+### Documentation
+
+- [CNUMR best practices](https://github.com/cnumr/best-practices/blob/main/chapters/BP_054_en.md) - Reduce DOM access
+  via JavaScript
+- [Mozilla Web Technology for Developers](https://developer.mozilla.org/en-US/docs/Learn/Performance/JavaScript#tips_for_writing_more_efficient_code) -
+  Tips for writing more efficient code

@@ -4,37 +4,46 @@
 
 <!-- end auto-generated rule header -->
 
-## Rule Details
+## Why is this an issue?
 
-This rule aims to disallow batching multiple style changes at once.
+Browsers optimize rendering performance by batching and combining similar operations.
+However, when making multiple CSS changes at once, it can disrupt the browser's optimization mechanisms.
+Applying changes individually allows the browser to better optimize the rendering process.
 
-To limit the number of repaint/reflow, it is advised to batch style modifications by adding a class containing all style
-changes that will generate a unique reflow.
+Making multiple CSS changes in a single batch can trigger multiple reflows and repaints in the browser.
+Reflows and repaints are resource-intensive operations that can lead to performance issues.
+Applying changes individually minimizes the number of reflows and repaints, improving overall page performance.
 
-## Examples
-
-Examples of **non-compliant** code for this rule:
+Here's an example in JavaScript and CSS to illustrate this rule:
 
 ```html
 <script>
-  element.style.height = "800px";
-  element.style.width = "600px";
-  element.style.color = "red";
+element.style.height = "800px";
+element.style.width = "600px"; // Non-compliant
+element.style.color = "red"; // Non-compliant
 </script>
 ```
-
-Examples of **compliant** code for this rule:
 
 ```html
 <style>
-  .in-error {
-    color: red;
-    height: 800px;
-    width: 800px;
-  }
+.in-error {
+  color: red;
+  height: 800px;
+  width: 800px;
+}
 </style>
 
 <script>
-  element.addClass("in-error");
+element.addClass("in-error"); // Compliant
 </script>
 ```
+
+In the first example, multiple CSS properties are set in a single batch, while in the second example, changes are
+applied through a CSS class.
+
+## Resources
+
+### Documentation
+
+- [CNUMR best practices](https://github.com/cnumr/best-practices/blob/main/chapters/BP_045_en.md) - Modify several CSS
+  properties at once

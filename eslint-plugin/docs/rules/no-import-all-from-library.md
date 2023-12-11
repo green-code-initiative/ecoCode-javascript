@@ -4,11 +4,16 @@
 
 <!-- end auto-generated rule header -->
 
-## Rule details
+## Why is this an issue?
 
-This rule aims to reduce weight of programs by using only needed modules. Many libraries export only one module by
-default, but some of them are exporting ES modules or submodules. We should use them to select more precisly needed
-modules and avoid unnecessarily overloading files weight.
+Including only the required modules decreases the overall size of the program.
+This, in turn, reduces the amount of memory and storage space needed to run and store the application.
+This is especially critical in environments with limited resources, such as on mobile devices or in web applications
+where bandwidth and download times matter.
+
+Smaller programs generally have better runtime performance.
+Reducing the number of unnecessary modules minimizes the amount of code that needs to be interpreted or compiled,
+leading to faster execution and improved overall performance.
 
 ## Options
 
@@ -32,7 +37,8 @@ module.exports = {
 
 ## Examples
 
-Examples of **non-compliant** code for this rule:
+**Example with the well-known [lodash](https://lodash.com/) library, if you only need
+`isEmpty` method.**
 
 ```js
 // Example with lodash
@@ -73,3 +79,14 @@ Size of your bundle, if you use only the "isEmpty" method:
         * isArrayLike.js - 830 B
         * ...
     * index.js - 110 B
+
+## Resources
+
+### Documentation
+
+- [Mozilla Web Technology for Developers](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) -
+  import
+
+### Articles & blog posts
+
+- [Importing modules in JavaScript, are we doing it right?](https://dev.to/dianjuar/importing-modules-in-javascript-are-we-doing-it-right-nc)
