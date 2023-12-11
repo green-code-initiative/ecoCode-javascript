@@ -11,6 +11,26 @@ ultimately conserving time and energy.
 By reducing the number of CSS properties, you help to reduce the weight of your application bundle, and therefore its
 environmental footprint.
 
+## Options
+
+You can disable specific properties from being scanned if it does not match your needs.
+To disable properties you need to modify your .eslintrc.js by adding the following rule configuration:
+
+```js
+module.exports = {
+  ...yourConf,
+  rules: {
+    "prefer-shorthand-css-notations": [
+      "warn",
+      // disable analyze of "animation-*" properties
+      { disableProperties: ["animation"] },
+    ],
+  },
+};
+```
+
+## Examples
+
 For example, the `font` shorthand consolidates various font-related properties, and the `margin` shorthand streamlines
 the definition of margins around a box.
 
