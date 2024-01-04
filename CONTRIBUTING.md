@@ -27,8 +27,8 @@ learn [plugin basics](https://docs.sonarqube.org/latest/extension-guide/developi
 
 ### For the ESLint plugin
 
-- Node.js 14.17.x, 16.x, 18.x or newer
-- Yarn 2+ ([installation guide](https://yarnpkg.com/getting-started/install))
+- Node.js 18.x or newer
+- Yarn ([installation guide](https://yarnpkg.com/getting-started/install))
 - ESLint plugin maintenance skills
 - ESLint custom rule creation skills
 
