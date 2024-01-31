@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 -   [#30](https://github.com/green-code-initiative/ecoCode-javascript/issues/30) EC24: define the WHERE clause as a limiting keyword
+-   [#32](https://github.com/green-code-initiative/ecoCode-javascript/pull/32) Add support for SonarQube 10.4 "DownloadOnlyWhenRequired" feature
 -   [ecoCode#185](https://github.com/green-code-initiative/ecoCode/issues/185) Add build number to manifest
 
 ### Changed
