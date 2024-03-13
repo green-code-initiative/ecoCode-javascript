@@ -23,8 +23,7 @@ jobs:
   release:
     name: Create release
     runs-on: ubuntu-latest
-    if: contains('["dedece35","glalloue","jhertout","jules-delecour-dav","olegoaer","zippy1978","utarwyn"]', github.actor)
-    needs: checks
+    if: contains('["dedece35","glalloue","jhertout","jules-delecour-dav","olegoaer","zippy1978","utarwyn","mdubois81"]', github.actor)
     steps:
       - name: Checkout
         uses: actions/checkout@v4
