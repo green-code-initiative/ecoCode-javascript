@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.5.0] - 2024-03-13
+
 ### Added
 
 -   Add support for SonarQube up to 10.4
@@ -16,7 +18,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
--  [#30](https://github.com/green-code-initiative/ecoCode-javascript/issues/30) Improve documentation and clean code taxonomy of all rules
+-   [#30](https://github.com/green-code-initiative/ecoCode-javascript/issues/30) Improve documentation and clean code taxonomy of all rules
 
 ### Fixed
 
@@ -63,7 +65,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 -   Setup basic coding style tools
 -   Write complete contributing guide
 
-[Unreleased]: https://github.com/green-code-initiative/ecoCode-javascript/compare/1.4.0...HEAD
+[Unreleased]: https://github.com/green-code-initiative/ecoCode-javascript/compare/1.5.0...HEAD
+
+[1.5.0]: https://github.com/green-code-initiative/ecoCode-javascript/compare/1.4.0...1.5.0
 
 [1.4.0]: https://github.com/green-code-initiative/ecoCode-javascript/compare/eslint-plugin/0.2.0...1.4.0
 
