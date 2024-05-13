@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+-   Add support for SonarQube up to 10.5
+
 ## [1.5.0] - 2024-03-13
 
 ### Added
