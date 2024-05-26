@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 -   Add support for SonarQube up to 10.5
 
+### Changed
+
+-   Update Docker Compose configuration file to V2
+
 ## [1.5.0] - 2024-03-13
 
 ### Added

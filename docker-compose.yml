@@ -1,19 +1,22 @@
-version: "3.3"
+---
+name: sonarqube_ecocode_javascript
+
 services:
   sonar:
     image: sonarqube:10-community
-    container_name: sonar_ecocode
+    container_name: sonar_ecocode_javascript
     ports:
       - "9000:9000"
     networks:
       - sonarnet
     depends_on:
-      - db
+      db:
+        condition: service_healthy
     environment:
       SONAR_JDBC_USERNAME: sonar
       SONAR_JDBC_PASSWORD: sonar
       SONAR_JDBC_URL: jdbc:postgresql://db:5432/sonarqube
-      SONAR_ES_BOOTSTRAP_CHECKS_DISABLE: 'true'
+      SONAR_ES_BOOTSTRAP_CHECKS_DISABLE: "true"
     volumes:
       - type: bind
         source: ./sonar-plugin/target/ecocode-javascript-plugin-1.5.1-SNAPSHOT.jar
@@ -24,7 +27,7 @@ services:
 
   db:
     image: postgres:12
-    container_name: postgresql_ecocode
+    container_name: postgresql_ecocode_javascript
     networks:
       - sonarnet
     volumes:
@@ -34,6 +37,11 @@ services:
       POSTGRES_PASSWORD: sonar
       POSTGRES_DB: sonarqube
       PGDATA: pg_data:/var/lib/postgresql/data/pgdata
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U sonar -d sonarqube" ]
+      interval: 5s
+      timeout: 5s
+      retries: 5
 
 networks:
   sonarnet:
