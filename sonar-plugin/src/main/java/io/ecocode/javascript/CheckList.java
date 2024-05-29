@@ -36,6 +36,7 @@ public class CheckList {
         return Arrays.asList(
                 AvoidCSSAnimations.class,
                 AvoidHighAccuracyGeolocation.class,
+                AvoidKeepAwake.class,
                 LimitDbQueryResult.class,
                 NoEmptyImageSrcAttribute.class,
                 NoImportAllFromLibrary.class,
