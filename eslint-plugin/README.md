@@ -76,6 +76,7 @@ Add `@ecocode` to the `plugins` section of your `.eslintrc`, followed by rules c
 | [no-import-all-from-library](docs/rules/no-import-all-from-library.md)                 | Should not import all from library                         | ✅  |
 | [no-multiple-access-dom-element](docs/rules/no-multiple-access-dom-element.md)         | Disallow multiple access of same DOM element.              | ✅  |
 | [no-multiple-style-changes](docs/rules/no-multiple-style-changes.md)                   | Disallow multiple style changes at once.                   | ✅  |
+| [no-torch](docs/rules/no-torch.md)                                                     | Should not programmatically enable torch mode              | ✅  |
 | [prefer-collections-with-pagination](docs/rules/prefer-collections-with-pagination.md) | Prefer API collections with pagination.                    | ✅  |
 | [prefer-shorthand-css-notations](docs/rules/prefer-shorthand-css-notations.md)         | Encourage usage of shorthand CSS notations                 | ✅  |
 | [provide-print-css](docs/rules/provide-print-css.md)                                   | Enforce providing a print stylesheet                       | ✅  |
