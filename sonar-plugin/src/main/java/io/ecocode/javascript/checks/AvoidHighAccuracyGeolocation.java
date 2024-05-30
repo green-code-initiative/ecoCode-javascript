@@ -21,10 +21,12 @@ import org.sonar.check.Rule;
 import org.sonar.plugins.javascript.api.EslintBasedCheck;
 import org.sonar.plugins.javascript.api.JavaScriptRule;
 import org.sonar.plugins.javascript.api.TypeScriptRule;
+import org.sonarsource.analyzer.commons.annotations.DeprecatedRuleKey;
 
 @JavaScriptRule
 @TypeScriptRule
 @Rule(key = AvoidHighAccuracyGeolocation.RULE_KEY)
+@DeprecatedRuleKey(repositoryKey = "ecocode-javascript", ruleKey = "EC8")
 public class AvoidHighAccuracyGeolocation implements EslintBasedCheck {
 
     public static final String RULE_KEY = "EC523";
