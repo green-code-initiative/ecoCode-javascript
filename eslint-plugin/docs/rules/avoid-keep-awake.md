@@ -1,4 +1,4 @@
-# Avoid using keepAwake in web applications (`@ecocode/avoid-keep-awake`)
+# Avoid screen keep awake (`@ecocode/avoid-keep-awake`)
 
 ⚠️ This rule _warns_ in the ✅ `recommended` config.
 
