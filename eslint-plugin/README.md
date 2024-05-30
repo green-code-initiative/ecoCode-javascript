@@ -69,6 +69,7 @@ Add `@ecocode` to the `plugins` section of your `.eslintrc`, followed by rules c
 
 | Name                                                                                   | Description                                                | ⚠️ |
 | :------------------------------------------------------------------------------------- | :--------------------------------------------------------- | :- |
+| [avoid-brightness-override](docs/rules/avoid-brightness-override.md)                   | Should avoid to override brightness                        | ✅  |
 | [avoid-css-animations](docs/rules/avoid-css-animations.md)                             | Avoid usage of CSS animations                              | ✅  |
 | [avoid-high-accuracy-geolocation](docs/rules/avoid-high-accuracy-geolocation.md)       | Avoid using high accuracy geolocation in web applications. | ✅  |
 | [limit-db-query-results](docs/rules/limit-db-query-results.md)                         | Should limit the number of returns for a SQL query         | ✅  |
