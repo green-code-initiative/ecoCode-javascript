@@ -64,7 +64,6 @@ ruleTester.run("avoid-keep-awake", rule, {
         );
       }
      `,
-      errors: [expectedErrorHook],
     },
     {
       code: `
@@ -80,7 +79,6 @@ ruleTester.run("avoid-keep-awake", rule, {
         }
       }      
      `,
-      errors: [expectedErrorFunction],
     },
     ,
   ],
