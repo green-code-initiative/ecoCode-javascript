@@ -18,6 +18,13 @@
 
 "use strict";
 
+const brightnessLibrariesMethods = {
+    'expo-brightness': ['setBrightnessAsync', 'setSystemBrightnessAsync', 'setSystemBrightnessAsync'],
+    'react-native-device-brightness': ['setBrightnessLevel'],
+    'react-native-screen-brightness': ['setBrightness'],
+    '@capacitor-community/screen-brightness': ['setBrightness']
+};
+
 /** @type {import("eslint").Rule.RuleModule} */
 module.exports = {
     meta: {
@@ -39,13 +46,6 @@ module.exports = {
         ],
     },
     create: function (context) {
-        const brightnessLibrariesMethods = {
-            'expo-brightness': ['setBrightnessAsync', 'setSystemBrightnessAsync', 'setSystemBrightnessAsync'],
-            'react-native-device-brightness': ['setBrightnessLevel'],
-            'react-native-screen-brightness': ['setBrightness'],
-            '@capacitor-community/screen-brightness': ['setBrightness']
-        };
-
         const librariesFoundInImports = [];
 
         return {
