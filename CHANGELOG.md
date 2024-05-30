@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- add brightness override rules for mobile app framework over js (capacitor, react native...)
+
 ### Added
 
 -   Add support for SonarQube up to 10.5
