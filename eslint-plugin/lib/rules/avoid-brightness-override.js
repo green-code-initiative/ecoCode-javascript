@@ -57,7 +57,7 @@ module.exports = {
                 }
             },
             MemberExpression(node) {
-                if (librariesFoundInImports.length == 0) {
+                if (librariesFoundInImports.length === 0) {
                     return;
                 }
 
