@@ -42,5 +42,6 @@ This rule is build for [React](https://react.dev/) and JSX.
   audio content
 - [Mozilla Web Technology for Developers](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video#attr-preload) -
   Preload in HTML
+- [W3C](https://w3c.github.io/sustyweb/star.html#UX16-1) - Autoplay attribute
 
 
