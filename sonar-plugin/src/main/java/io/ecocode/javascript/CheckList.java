@@ -42,6 +42,7 @@ public class CheckList {
                 NoMultipleAccessDomElement.class,
                 NoMultipleStyleChanges.class,
                 PreferCollectionsWithPagination.class,
+                PreferLighterFormatsForImageFiles.class,
                 PreferShorthandCSSNotations.class,
                 ProvidePrintCSS.class
         );
