@@ -27,7 +27,7 @@ import org.sonar.plugins.javascript.api.TypeScriptRule;
 @Rule(key = AvoidHighAccuracyGeolocation.RULE_KEY)
 public class AvoidHighAccuracyGeolocation implements EslintBasedCheck {
 
-    public static final String RULE_KEY = "EC8";
+    public static final String RULE_KEY = "EC523";
 
     @Override
     public String eslintKey() {
