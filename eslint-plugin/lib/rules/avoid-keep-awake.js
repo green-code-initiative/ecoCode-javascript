@@ -34,16 +34,15 @@ module.exports = {
   },
   create: function (context) {
     return {
-        Identifier(node){
+      Identifier(node) {
         if (
-          node?.name === "useKeepAwake" 
-          && node?.parent.type === "CallExpression"
+          node?.name === "useKeepAwake" &&
+          node?.parent.type === "CallExpression"
         ) {
           context.report({ node, messageId: "AvoidKeepAwake" });
-        }
-        else if (
-          node?.name === "activateKeepAwake" 
-          && node?.parent.type === "CallExpression"
+        } else if (
+          node?.name === "activateKeepAwake" &&
+          node?.parent.type === "CallExpression"
         ) {
           context.report({ node, messageId: "AvoidKeepAwake" });
         }

@@ -41,12 +41,12 @@ const ruleTester = new RuleTester({
 
 const expectedErrorHook = {
   messageId: "AvoidKeepAwake",
-  type: "Identifier", 
+  type: "Identifier",
 };
 
 const expectedErrorFunction = {
   messageId: "AvoidKeepAwake",
-  type: "Identifier", 
+  type: "Identifier",
 };
 
 ruleTester.run("avoid-keep-awake", rule, {
@@ -80,7 +80,6 @@ ruleTester.run("avoid-keep-awake", rule, {
       }      
      `,
     },
-    ,
   ],
   invalid: [
     {
