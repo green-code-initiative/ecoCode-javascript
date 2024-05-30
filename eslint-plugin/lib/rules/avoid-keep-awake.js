@@ -41,6 +41,12 @@ module.exports = {
         ) {
           context.report({ node, messageId: "AvoidKeepAwake" });
         }
+        else if (
+          node?.name === "activateKeepAwake" 
+          && node?.parent.type === "CallExpression"
+        ) {
+          context.report({ node, messageId: "AvoidKeepAwake" });
+        }
       },
     };
   },

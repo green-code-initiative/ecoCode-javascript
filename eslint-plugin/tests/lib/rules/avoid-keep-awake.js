@@ -31,14 +31,20 @@ const RuleTester = require("eslint").RuleTester;
 
 const ruleTester = new RuleTester({
   parserOptions: {
-    ecmaVersion: 2015, //es6
+    ecmaVersion: 2022,
     sourceType: "module",
     ecmaFeatures: {
       jsx: true,
     },
   },
 });
-const expectedError = {
+
+const expectedErrorHook = {
+  messageId: "AvoidKeepAwake",
+  type: "Identifier", 
+};
+
+const expectedErrorFunction = {
   messageId: "AvoidKeepAwake",
   type: "Identifier", 
 };
@@ -58,7 +64,23 @@ ruleTester.run("avoid-keep-awake", rule, {
         );
       }
      `,
-      errors: [expectedError],
+      errors: [expectedErrorHook],
+    },
+    {
+      code: `
+      import React from 'react';
+      import { Button, View } from 'react-native';
+      
+      export default class ValidExample extends React.Component {
+        render() {
+          return (
+            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+            </View>
+          );
+        }
+      }      
+     `,
+      errors: [expectedErrorFunction],
     },
     ,
   ],
@@ -78,8 +100,29 @@ ruleTester.run("avoid-keep-awake", rule, {
         );
       }
      `,
-      errors: [expectedError],
+      errors: [expectedErrorHook],
     },
-    ,
+    {
+      code: `
+      import { activateKeepAwake } from 'expo-keep-awake';
+      import React from 'react';
+      import { Button, View } from 'react-native';
+
+      export default class KeepAwakeExample extends React.Component {
+        render() {
+          return (
+            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+              <Button onPress={this._activate} title="Activate" />
+            </View>
+          );
+        }
+
+        _activate = () => {
+          activateKeepAwake();
+          alert('Activated!');
+        };
+      }`,
+      errors: [expectedErrorFunction],
+    },
   ],
 });
