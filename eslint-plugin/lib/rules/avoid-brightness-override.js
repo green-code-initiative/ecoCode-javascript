@@ -38,12 +38,7 @@ module.exports = {
             ShouldAvoidOverrideBrightness:
                 "Do not force Brightness in your code, unless absolutely necessary",
         },
-        schema: [
-            {
-                type: "object",
-                additionalProperties: false,
-            },
-        ],
+        schema: [],
     },
     create: function (context) {
         const librariesFoundInImports = [];
