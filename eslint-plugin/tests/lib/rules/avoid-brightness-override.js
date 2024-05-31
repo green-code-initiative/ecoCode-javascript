@@ -30,22 +30,22 @@ const RuleTester = require("eslint").RuleTester;
 //------------------------------------------------------------------------------
 
 const ruleTester = new RuleTester({
-    parserOptions: {
-        ecmaVersion: 2021,
-        sourceType: "module",
-        ecmaFeatures: {
-            jsx: true
-        }
+  parserOptions: {
+    ecmaVersion: 2021,
+    sourceType: "module",
+    ecmaFeatures: {
+      jsx: true,
     },
+  },
 });
 const expectedError = {
-    messageId: "ShouldAvoidOverrideBrightness",
-    type: "MemberExpression",
+  messageId: "ShouldAvoidOverrideBrightness",
+  type: "MemberExpression",
 };
 
 ruleTester.run("avoid-brightness-override", rule, {
-    valid: [
-        `
+  valid: [
+    `
         import * as lodash from 'lodash';
         lodash.isEmpty('');
     `,
@@ -55,7 +55,7 @@ ruleTester.run("avoid-brightness-override", rule, {
     // Get the current brightness:
     const {brightness: currentBrightness} = ScreenBrightness.getBrightness();
     `,
-        `
+    `
     import DeviceBrightness from 'react-native-device-brightness';
 
     DeviceBrightness.getBrightnessLevel()
@@ -65,49 +65,49 @@ ruleTester.run("avoid-brightness-override", rule, {
         console.log(luminous);
     });
     `,
-        `
+    `
         import * as Brightness from 'expo-brightness';
 
         Brightness.requestPermissionsAsync();
     `,
-        `
+    `
         import ScreenBrightness from 'react-native-screen-brightness';
 
         ScreenBrightness.getBrightness().then(brightness => {
         console.log('brightness', brightness);
         });
     `,
-    ],
+  ],
 
-    invalid: [
-        {
-            code: `
+  invalid: [
+    {
+      code: `
             import { ScreenBrightness } from '@capacitor-community/screen-brightness';
 
             // Set the brightness:
             const brightness = 0.5;
             ScreenBrightness.setBrightness({ brightness });
         `,
-            errors: [expectedError]
-        },
-        {
-            code: `
+      errors: [expectedError],
+    },
+    {
+      code: `
             import DeviceBrightness from 'react-native-device-brightness';
 
             DeviceBrightness.setBrightnessLevel(0.5);
         `,
-            errors: [expectedError]
-        },
-        {
-            code: `
+      errors: [expectedError],
+    },
+    {
+      code: `
             import ScreenBrightness from 'react-native-screen-brightness';
 
             ScreenBrightness.setBrightness(0.5);
         `,
-            errors: [expectedError]
-        },
-        {
-            code: `
+      errors: [expectedError],
+    },
+    {
+      code: `
                 import React, { useEffect } from 'react';
                 import { StyleSheet, View, Text } from 'react-native';
                 import * as Brightness from 'expo-brightness';
@@ -129,7 +129,7 @@ ruleTester.run("avoid-brightness-override", rule, {
                 );
                 }
         `,
-            errors: [expectedError]
-        }
-    ],
+      errors: [expectedError],
+    },
+  ],
 });

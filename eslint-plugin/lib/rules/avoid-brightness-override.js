@@ -19,50 +19,58 @@
 "use strict";
 
 const brightnessLibrariesMethods = {
-    'expo-brightness': ['setBrightnessAsync', 'setSystemBrightnessAsync', 'setSystemBrightnessAsync'],
-    'react-native-device-brightness': ['setBrightnessLevel'],
-    'react-native-screen-brightness': ['setBrightness'],
-    '@capacitor-community/screen-brightness': ['setBrightness']
+  "expo-brightness": [
+    "setBrightnessAsync",
+    "setSystemBrightnessAsync",
+    "setSystemBrightnessAsync",
+  ],
+  "react-native-device-brightness": ["setBrightnessLevel"],
+  "react-native-screen-brightness": ["setBrightness"],
+  "@capacitor-community/screen-brightness": ["setBrightness"],
 };
 
 /** @type {import("eslint").Rule.RuleModule} */
 module.exports = {
-    meta: {
-        type: "suggestion",
-        docs: {
-            description: "Should avoid to override brightness",
-            category: "eco-design",
-            recommended: "warn",
-        },
-        messages: {
-            ShouldAvoidOverrideBrightness:
-                "Do not force Brightness in your code, unless absolutely necessary",
-        },
-        schema: [],
+  meta: {
+    type: "suggestion",
+    docs: {
+      description: "Should avoid to override brightness",
+      category: "eco-design",
+      recommended: "warn",
     },
-    create: function (context) {
-        const librariesFoundInImports = [];
-
-        return {
-            ImportDeclaration(node) {
-                const currentLibrary = node.source.value;
-
-                if (brightnessLibrariesMethods[currentLibrary]) {
-                    librariesFoundInImports.push(currentLibrary);
-                }
-            },
-            MemberExpression(node) {
-                if (librariesFoundInImports.length === 0) {
-                    return;
-                }
-
-                if (librariesFoundInImports.some((library) => brightnessLibrariesMethods[library].includes(node.property.name))) {
-                    context.report({
-                        node,
-                        messageId: "ShouldAvoidOverrideBrightness",
-                    });
-                }
-            },
-        };
+    messages: {
+      ShouldAvoidOverrideBrightness:
+        "Do not force Brightness in your code, unless absolutely necessary",
     },
+    schema: [],
+  },
+  create: function (context) {
+    const librariesFoundInImports = [];
+
+    return {
+      ImportDeclaration(node) {
+        const currentLibrary = node.source.value;
+
+        if (brightnessLibrariesMethods[currentLibrary]) {
+          librariesFoundInImports.push(currentLibrary);
+        }
+      },
+      MemberExpression(node) {
+        if (librariesFoundInImports.length === 0) {
+          return;
+        }
+
+        if (
+          librariesFoundInImports.some((library) =>
+            brightnessLibrariesMethods[library].includes(node.property.name),
+          )
+        ) {
+          context.report({
+            node,
+            messageId: "ShouldAvoidOverrideBrightness",
+          });
+        }
+      },
+    };
+  },
 };
