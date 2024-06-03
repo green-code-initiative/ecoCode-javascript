@@ -18,6 +18,10 @@
 
 "use strict";
 
+const geolocationLibrariesMethods = {
+  "expo-location": ["enableNetworkProviderAsync"],
+};
+
 /** @type {import("eslint").Rule.RuleModule} */
 module.exports = {
   meta: {
@@ -33,15 +37,41 @@ module.exports = {
     schema: [],
   },
   create: function (context) {
+    const librariesFoundInImports = [];
+
     return {
+      ImportDeclaration(node) {
+        const currentLibrary = node.source.value;
+
+        if (geolocationLibrariesMethods[currentLibrary]) {
+          librariesFoundInImports.push(currentLibrary);
+        }
+      },
+      MemberExpression(node) {
+        if (librariesFoundInImports.length === 0) {
+          return;
+        }
+
+        if (
+          librariesFoundInImports.some((library) =>
+            geolocationLibrariesMethods[library].includes(node.property.name),
+          )
+        ) {
+          reportAvoidUsingAccurateGeolocation(context, node);
+        }
+      },
       Property(node) {
         if (
           node?.key.name === "enableHighAccuracy" &&
           node?.value.value === true
         ) {
-          context.report({ node, messageId: "AvoidUsingAccurateGeolocation" });
+          reportAvoidUsingAccurateGeolocation(context, node);
         }
       },
     };
   },
 };
+
+function reportAvoidUsingAccurateGeolocation(context, node) {
+  context.report({ node, messageId: "AvoidUsingAccurateGeolocation" });
+}

@@ -29,10 +29,19 @@ const RuleTester = require("eslint").RuleTester;
 // Tests
 //------------------------------------------------------------------------------
 
-const ruleTester = new RuleTester();
-const expectedError = {
+const ruleTester = new RuleTester({
+  parserOptions: {
+    ecmaVersion: 6,
+    sourceType: "module",
+  },
+});
+const expectedErrorOnProperty = {
   messageId: "AvoidUsingAccurateGeolocation",
   type: "Property",
+};
+const expectedErrorOnMemberExpression = {
+  messageId: "AvoidUsingAccurateGeolocation",
+  type: "MemberExpression",
 };
 
 ruleTester.run("avoid-high-accuracy-geolocation", rule, {
@@ -60,6 +69,15 @@ ruleTester.run("avoid-high-accuracy-geolocation", rule, {
     `
     navigator.geolocation.getCurrentPosition(success, error, {enableHighAccuracy: false});
     `,
+
+    `
+    import axios from 'axios';
+    `,
+    `
+    import * as Location from 'expo-location';
+    
+    Location.requestPermissionsAsync();
+    `,
   ],
 
   invalid: [
@@ -77,13 +95,21 @@ ruleTester.run("avoid-high-accuracy-geolocation", rule, {
 
         navigator.geolocation.getCurrentPosition(success, error, options);
      `,
-      errors: [expectedError],
+      errors: [expectedErrorOnProperty],
     },
     {
       code: `
       navigator.geolocation.getCurrentPosition(success, error, {enableHighAccuracy: true});
      `,
-      errors: [expectedError],
+      errors: [expectedErrorOnProperty],
+    },
+    {
+      code: `
+      import * as Location from 'expo-location';
+      
+      Location.enableNetworkProviderAsync();
+     `,
+      errors: [expectedErrorOnMemberExpression],
     },
   ],
 });
