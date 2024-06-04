@@ -44,7 +44,7 @@ public class CheckList {
                 PreferCollectionsWithPagination.class,
                 PreferShorthandCSSNotations.class,
                 ProvidePrintCSS.class,
-                AvoirBrightnessOverride.class
+                AvoidBrightnessOverride.class
         );
     }
 
