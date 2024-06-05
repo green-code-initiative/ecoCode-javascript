@@ -21,19 +21,17 @@ import org.sonar.check.Rule;
 import org.sonar.plugins.javascript.api.EslintBasedCheck;
 import org.sonar.plugins.javascript.api.JavaScriptRule;
 import org.sonar.plugins.javascript.api.TypeScriptRule;
-import org.sonarsource.analyzer.commons.annotations.DeprecatedRuleKey;
 
 @JavaScriptRule
 @TypeScriptRule
-@Rule(key = AvoidHighAccuracyGeolocation.RULE_KEY)
-@DeprecatedRuleKey(repositoryKey = "ecocode-javascript", ruleKey = "EC8")
-public class AvoidHighAccuracyGeolocation implements EslintBasedCheck {
+@Rule(key = AvoidBrightnessOverride.RULE_KEY)
+public class AvoidBrightnessOverride implements EslintBasedCheck {
 
-    public static final String RULE_KEY = "EC523";
+    public static final String RULE_KEY = "EC522";
 
     @Override
     public String eslintKey() {
-        return "@ecocode/avoid-high-accuracy-geolocation";
+        return "@ecocode/avoid-brightness-override";
     }
 
 }

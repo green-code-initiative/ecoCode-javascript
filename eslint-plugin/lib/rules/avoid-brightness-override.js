@@ -18,8 +18,15 @@
 
 "use strict";
 
-const geolocationLibrariesMethods = {
-  "expo-location": ["enableNetworkProviderAsync"],
+const brightnessLibrariesMethods = {
+  "expo-brightness": [
+    "setBrightnessAsync",
+    "setSystemBrightnessAsync",
+    "setSystemBrightnessAsync",
+  ],
+  "react-native-device-brightness": ["setBrightnessLevel"],
+  "react-native-screen-brightness": ["setBrightness"],
+  "@capacitor-community/screen-brightness": ["setBrightness"],
 };
 
 /** @type {import("eslint").Rule.RuleModule} */
@@ -27,12 +34,13 @@ module.exports = {
   meta: {
     type: "suggestion",
     docs: {
-      description: "Avoid using high accuracy geolocation in web applications.",
+      description: "Should avoid to override brightness",
       category: "eco-design",
       recommended: "warn",
     },
     messages: {
-      AvoidUsingAccurateGeolocation: "Avoid using high accuracy geolocation",
+      ShouldAvoidOverrideBrightness:
+        "Do not force Brightness in your code, unless absolutely necessary",
     },
     schema: [],
   },
@@ -43,7 +51,7 @@ module.exports = {
       ImportDeclaration(node) {
         const currentLibrary = node.source.value;
 
-        if (geolocationLibrariesMethods[currentLibrary]) {
+        if (brightnessLibrariesMethods[currentLibrary]) {
           librariesFoundInImports.push(currentLibrary);
         }
       },
@@ -54,24 +62,15 @@ module.exports = {
 
         if (
           librariesFoundInImports.some((library) =>
-            geolocationLibrariesMethods[library].includes(node.property.name),
+            brightnessLibrariesMethods[library].includes(node.property.name),
           )
         ) {
-          reportAvoidUsingAccurateGeolocation(context, node);
-        }
-      },
-      Property(node) {
-        if (
-          node?.key.name === "enableHighAccuracy" &&
-          node?.value.value === true
-        ) {
-          reportAvoidUsingAccurateGeolocation(context, node);
+          context.report({
+            node,
+            messageId: "ShouldAvoidOverrideBrightness",
+          });
         }
       },
     };
   },
 };
-
-function reportAvoidUsingAccurateGeolocation(context, node) {
-  context.report({ node, messageId: "AvoidUsingAccurateGeolocation" });
-}
