@@ -34,6 +34,7 @@ public class CheckList {
 
     public static List<Class<? extends JavaScriptCheck>> getAllChecks() {
         return Arrays.asList(
+                AvoidBrightnessOverride.class,
                 AvoidCSSAnimations.class,
                 AvoidHighAccuracyGeolocation.class,
                 LimitDbQueryResult.class,
@@ -43,8 +44,7 @@ public class CheckList {
                 NoMultipleStyleChanges.class,
                 PreferCollectionsWithPagination.class,
                 PreferShorthandCSSNotations.class,
-                ProvidePrintCSS.class,
-                AvoidBrightnessOverride.class
+                ProvidePrintCSS.class
         );
     }
 
