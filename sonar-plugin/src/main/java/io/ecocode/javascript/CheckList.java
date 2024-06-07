@@ -42,6 +42,7 @@ public class CheckList {
                 NoImportAllFromLibrary.class,
                 NoMultipleAccessDomElement.class,
                 NoMultipleStyleChanges.class,
+                NoTorch.class,
                 PreferCollectionsWithPagination.class,
                 PreferShorthandCSSNotations.class,
                 ProvidePrintCSS.class

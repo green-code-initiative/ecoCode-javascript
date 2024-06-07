@@ -10,12 +10,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 -   [#39](https://github.com/green-code-initiative/ecoCode-javascript/issues/39) Add rule `@ecocode/avoid-brightness-override` (EC522)
+-   [#41](https://github.com/green-code-initiative/ecoCode-javascript/pull/41) Add rule `@ecocode/no-torch` (EC530)
 -   Add support for SonarQube up to 10.5
 
 ### Changed
 
--   Update Docker Compose configuration file to V2
 -   [#44](https://github.com/green-code-initiative/ecoCode-javascript/pull/44) Implement the rule EC523 for React Native
+-   Update Docker Compose configuration file to V2
 
 ### Deleted
 
