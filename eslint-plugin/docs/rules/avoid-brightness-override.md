@@ -25,7 +25,7 @@ import * as Brightness from 'expo-brightness';
 
 export default function App() {
     useEffect(() => {
-        (async () => { Brightness.setSystemBrightnessAsyn(1); })(); // Brightness is forced here
+        (async () => { Brightness.setSystemBrightnessAsync(1); })(); // Brightness is forced here
     }, []);
     return (
         <View>
