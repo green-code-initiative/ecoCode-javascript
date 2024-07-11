@@ -43,14 +43,11 @@ module.exports = {
           } else if (child.expression != null) {
             if (child.expression.value != null) {
               element = child.expression.value;
-            } else if (
-              child.expression.quasis != null &&
-              child.expression.quasis.length > 0
-            ) {
+            } else if (child.expression.quasis?.length > 0) {
               element = child.expression.quasis[0].value.cooked;
             }
           }
-          return element != null && element.includes("@media print");
+          return element?.includes("@media print");
         })
       );
     };
@@ -71,10 +68,7 @@ module.exports = {
           );
 
           if (!hasValidElement) {
-            context.report({
-              node: node,
-              messageId: "noPrintCSSProvided",
-            });
+            context.report({ node, messageId: "noPrintCSSProvided" });
           }
         }
       },

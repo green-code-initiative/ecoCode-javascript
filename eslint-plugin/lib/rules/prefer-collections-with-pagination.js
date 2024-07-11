@@ -35,8 +35,7 @@ const isPaginated = (objectType) => {
     }
   } else if (objectType.type === "TSTypeLiteral") {
     if (
-      objectType.members != null &&
-      objectType.members.some(
+      objectType.members?.some(
         (member) => member.key != null && isPaginationName(member.key.name),
       )
     ) {
@@ -46,6 +45,18 @@ const isPaginated = (objectType) => {
 
   return false;
 };
+
+const isNestGetDecorator = (decorator) =>
+  decorator.expression.callee.name.toLowerCase() === "get" &&
+  (decorator.expression.arguments.length === 0 ||
+    !decorator.expression.arguments[0].value.includes(":"));
+
+const isInNestControllerClass = (decorator) =>
+  decorator.parent.parent.parent.type === "ClassDeclaration" &&
+  decorator.parent.parent.parent.decorators.find(
+    (decorator) =>
+      decorator.expression.callee.name.toLowerCase() === "controller",
+  );
 
 const report = (context, node) =>
   context.report({ node, messageId: "PreferReturnCollectionsWithPagination" });
@@ -68,29 +79,11 @@ module.exports = {
   },
   defaultOptions: [],
   create(context) {
-    const isValidDecorator = (decorator) => {
-      return (
-        decorator.expression.callee.name.toLowerCase() === "get" &&
-        (decorator.expression.arguments.length === 0 ||
-          !decorator.expression.arguments[0].value.includes(":"))
-      );
-    };
-
     return {
       Decorator(node) {
-        if (
-          isValidDecorator(node) &&
-          node.parent.parent.parent.type === "ClassDeclaration" &&
-          node.parent.parent.parent.decorators.find(
-            (decorator) =>
-              decorator.expression.callee.name.toLowerCase() === "controller",
-          )
-        ) {
+        if (isNestGetDecorator(node) && isInNestControllerClass(node)) {
           const getMethod = node.parent;
-          const returnType =
-            getMethod.value.returnType != null
-              ? getMethod.value.returnType.typeAnnotation
-              : null;
+          const returnType = getMethod.value.returnType?.typeAnnotation;
 
           if (returnType != null) {
             if (

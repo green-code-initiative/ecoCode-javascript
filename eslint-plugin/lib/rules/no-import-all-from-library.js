@@ -74,18 +74,14 @@ module.exports = {
       ImportDeclaration(node) {
         const currentLibrary = node.source.value;
 
-        if (notAllowedLibraries.includes(currentLibrary)) {
-          context.report({
-            node,
-            messageId: "ShouldNotImportAllFromLibrary",
-            data: { library: currentLibrary },
-          });
-        } else if (
+        const forbiddenByName = notAllowedLibraries.includes(currentLibrary);
+        const forbiddenByNamespace =
           importByNamespaceNotAllowedLibraries.includes(currentLibrary) &&
           node.specifiers.some(
             (specifier) => specifier.type === "ImportNamespaceSpecifier",
-          )
-        ) {
+          );
+
+        if (forbiddenByName || forbiddenByNamespace) {
           context.report({
             node,
             messageId: "ShouldNotImportAllFromLibrary",
