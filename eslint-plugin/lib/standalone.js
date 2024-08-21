@@ -24,13 +24,13 @@
 
 const rulesList = require("./rule-list");
 
-const allRules = {}
-const recommendedRules = {} // recommended rules
+const allRules = {};
+const recommendedRules = {}; // recommended rules
 
 for (let { ruleName, ruleModule } of rulesList) {
   allRules[ruleName] = ruleModule;
   const { recommended } = ruleModule.meta.docs;
-  const ruleConfiguration = recommended === false ? "off" : recommended
+  const ruleConfiguration = recommended === false ? "off" : recommended;
   recommendedRules[`@ecocode/${ruleName}`] = ruleConfiguration;
 }
 
@@ -46,11 +46,11 @@ plugin.configs = {
   recommended: {
     plugins: ["@ecocode"],
     rules: recommendedRules,
-  }, 
-  ['flat/recommended'] = {
-    plugins: { '@ecocode': plugin },
+  },
+  ["flat/recommended"]: {
+    plugins: { "@ecocode": plugin },
     rules: recommendedRules,
-  }
-}
+  },
+};
 
 module.exports = plugin;
