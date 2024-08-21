@@ -25,28 +25,31 @@
 const rulesList = require("./rule-list");
 
 const allRules = {}
-const rules = {} // recommended rules
+const recommendedRules = {} // recommended rules
 
 for (let { ruleName, ruleModule } of rulesList) {
   allRules[ruleName] = ruleModule;
   const { recommended } = ruleModule.meta.docs;
-  rules[`@ecocode/${ruleName}`] = recommended === false ? "off" : recommended;
+  const ruleConfiguration = recommended === false ? "off" : recommended
+  recommendedRules[`@ecocode/${ruleName}`] = ruleConfiguration;
 }
 
 const plugin = {
   meta: {
-      name: "@ecocode/eslint-plugin",
-      version: "1.6.0"
+    name: "@ecocode/eslint-plugin",
+    version: "1.6.0",
   },
   rules: allRules,
 };
 
-plugin.configs = { 
+plugin.configs = {
   recommended: {
-    plugins: ["@ecocode"], rules,
-  } 
+    plugins: ["@ecocode"],
+    rules: recommendedRules,
+  }, 
   ['flat/recommended'] = {
-    plugins: { '@ecocode': plugin }, rules,
+    plugins: { '@ecocode': plugin },
+    rules: recommendedRules,
   }
 }
 
