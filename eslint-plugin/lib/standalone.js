@@ -39,14 +39,15 @@ const plugin = {
       version: "1.6.0"
   },
   rules: allRules,
-  configs: { 
-    recommended: {
-      plugins: ["@ecocode"], rules,
-    } 
-    ['flat/recommended'] = {
-      plugins: { '@ecocode': plugin }, rules,
-    }
-  },
 };
+
+plugin.configs = { 
+  recommended: {
+    plugins: ["@ecocode"], rules,
+  } 
+  ['flat/recommended'] = {
+    plugins: { '@ecocode': plugin }, rules,
+  }
+}
 
 module.exports = plugin;
