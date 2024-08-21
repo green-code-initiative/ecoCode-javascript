@@ -44,7 +44,7 @@ const plugin = {
       plugins: ["@ecocode"], rules,
     } 
     ['flat/recommended'] = {
-      plugins: { '@ecocode': ecocode }, rules,
+      plugins: { '@ecocode': plugin }, rules,
     }
   },
 };
