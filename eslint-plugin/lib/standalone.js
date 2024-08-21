@@ -22,21 +22,31 @@
  */
 "use strict";
 
-const rules = require("./rule-list");
+const rulesList = require("./rule-list");
 
-const ruleModules = rules.reduce((map, rule) => {
-  map[rule.ruleName] = rule.ruleModule;
-  return map;
-}, {});
+const allRules = {}
+const rules = {} // recommended rules
 
-const ruleConfigs = rules.reduce((map, rule) => {
-  const recommended = rule.ruleModule.meta.docs.recommended;
-  map[`@ecocode/${rule.ruleName}`] =
-    recommended === false ? "off" : recommended;
-  return map;
-}, {});
+for (let { ruleName, ruleModule } of rulesList) {
+  allRules[ruleName] = ruleModule;
+  const { recommended } = ruleModule.meta.docs;
+  rules[`@ecocode/${ruleName}`] = recommended === false ? "off" : recommended;
+}
 
-module.exports = {
-  rules: ruleModules,
-  configs: { recommended: { plugins: ["@ecocode"], rules: ruleConfigs } },
+const plugin = {
+  meta: {
+      name: "@ecocode/eslint-plugin",
+      version: "1.6.0"
+  },
+  rules: allRules,
+  configs: { 
+    recommended: {
+      plugins: ["@ecocode"], rules,
+    } 
+    ['flat/recommended'] = {
+      plugins: { '@ecocode': ecocode }, rules,
+    }
+  },
 };
+
+module.exports = plugin;
