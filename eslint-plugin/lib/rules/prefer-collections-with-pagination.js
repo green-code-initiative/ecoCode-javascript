@@ -66,7 +66,7 @@ module.exports = {
   name: "prefer-collections-with-pagination",
   meta: {
     docs: {
-      description: "Prefer API collections with pagination.",
+      description: "Prefer API collections with pagination",
       category: "eco-design",
       recommended: "warn",
     },

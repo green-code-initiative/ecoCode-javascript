@@ -27,7 +27,7 @@ module.exports = {
   meta: {
     type: "suggestion",
     docs: {
-      description: "Avoid using high accuracy geolocation in web applications.",
+      description: "Avoid using high accuracy geolocation in web applications",
       category: "eco-design",
       recommended: "warn",
     },
