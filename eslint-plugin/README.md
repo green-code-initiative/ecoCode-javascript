@@ -65,7 +65,7 @@ Add `@ecocode` **"recommended"** configuration to `extends` section of your `.es
 
 #### With modern `eslint.config.js`
 
-Add the `ecocode` plugin configuration to  your `eslint.config.js` and select the rules to activate:
+Add the `ecocode` plugin configuration to your `eslint.config.js` and select the rules to activate:
 
 ```js
 import ecocode from '@ecocode/eslint-plugin'
