@@ -16,6 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 -   [#44](https://github.com/green-code-initiative/ecoCode-javascript/pull/44) Implement the rule EC523 for React Native
+-   [#52](https://github.com/green-code-initiative/ecoCode-javascript/pull/52) Remove trailing dots in Sonar rules descriptions
 -   Update Docker Compose configuration file to V2
 
 ### Deleted

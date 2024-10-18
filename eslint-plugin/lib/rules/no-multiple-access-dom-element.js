@@ -23,7 +23,7 @@ module.exports = {
   meta: {
     type: "suggestion",
     docs: {
-      description: "Disallow multiple access of same DOM element.",
+      description: "Disallow multiple access of same DOM element",
       category: "eco-design",
       recommended: "warn",
     },

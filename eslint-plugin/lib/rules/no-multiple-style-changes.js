@@ -23,7 +23,7 @@ module.exports = {
   meta: {
     type: "suggestion",
     docs: {
-      description: "Disallow multiple style changes at once.",
+      description: "Disallow multiple style changes at once",
       category: "eco-design",
       recommended: "warn",
     },

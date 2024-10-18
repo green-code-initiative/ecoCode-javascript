@@ -102,20 +102,20 @@ Add `@ecocode` to the `plugins` section of your `.eslintrc`, followed by rules c
 ⚠️ Configurations set to warn in.\
 ✅ Set in the `recommended` configuration.
 
-| Name                                                                                   | Description                                                | ⚠️                            |
-| :------------------------------------------------------------------------------------- | :--------------------------------------------------------- | :---------------------------- |
-| [avoid-brightness-override](docs/rules/avoid-brightness-override.md)                   | Should avoid to override brightness                        | ✅ ![badge-flat/recommended][] |
-| [avoid-css-animations](docs/rules/avoid-css-animations.md)                             | Avoid usage of CSS animations                              | ✅ ![badge-flat/recommended][] |
-| [avoid-high-accuracy-geolocation](docs/rules/avoid-high-accuracy-geolocation.md)       | Avoid using high accuracy geolocation in web applications. | ✅ ![badge-flat/recommended][] |
-| [limit-db-query-results](docs/rules/limit-db-query-results.md)                         | Should limit the number of returns for a SQL query         | ✅ ![badge-flat/recommended][] |
-| [no-empty-image-src-attribute](docs/rules/no-empty-image-src-attribute.md)             | Disallow usage of image with empty source attribute        | ✅ ![badge-flat/recommended][] |
-| [no-import-all-from-library](docs/rules/no-import-all-from-library.md)                 | Should not import all from library                         | ✅ ![badge-flat/recommended][] |
-| [no-multiple-access-dom-element](docs/rules/no-multiple-access-dom-element.md)         | Disallow multiple access of same DOM element.              | ✅ ![badge-flat/recommended][] |
-| [no-multiple-style-changes](docs/rules/no-multiple-style-changes.md)                   | Disallow multiple style changes at once.                   | ✅ ![badge-flat/recommended][] |
-| [no-torch](docs/rules/no-torch.md)                                                     | Should not programmatically enable torch mode              | ✅ ![badge-flat/recommended][] |
-| [prefer-collections-with-pagination](docs/rules/prefer-collections-with-pagination.md) | Prefer API collections with pagination.                    | ✅ ![badge-flat/recommended][] |
-| [prefer-shorthand-css-notations](docs/rules/prefer-shorthand-css-notations.md)         | Encourage usage of shorthand CSS notations                 | ✅ ![badge-flat/recommended][] |
-| [provide-print-css](docs/rules/provide-print-css.md)                                   | Enforce providing a print stylesheet                       | ✅ ![badge-flat/recommended][] |
+| Name                                                                                   | Description                                               | ⚠️ |
+| :------------------------------------------------------------------------------------- | :-------------------------------------------------------- | :- |
+| [avoid-brightness-override](docs/rules/avoid-brightness-override.md)                   | Should avoid to override brightness                       | ✅  |
+| [avoid-css-animations](docs/rules/avoid-css-animations.md)                             | Avoid usage of CSS animations                             | ✅  |
+| [avoid-high-accuracy-geolocation](docs/rules/avoid-high-accuracy-geolocation.md)       | Avoid using high accuracy geolocation in web applications | ✅  |
+| [limit-db-query-results](docs/rules/limit-db-query-results.md)                         | Should limit the number of returns for a SQL query        | ✅  |
+| [no-empty-image-src-attribute](docs/rules/no-empty-image-src-attribute.md)             | Disallow usage of image with empty source attribute       | ✅  |
+| [no-import-all-from-library](docs/rules/no-import-all-from-library.md)                 | Should not import all from library                        | ✅  |
+| [no-multiple-access-dom-element](docs/rules/no-multiple-access-dom-element.md)         | Disallow multiple access of same DOM element              | ✅  |
+| [no-multiple-style-changes](docs/rules/no-multiple-style-changes.md)                   | Disallow multiple style changes at once                   | ✅  |
+| [no-torch](docs/rules/no-torch.md)                                                     | Should not programmatically enable torch mode             | ✅  |
+| [prefer-collections-with-pagination](docs/rules/prefer-collections-with-pagination.md) | Prefer API collections with pagination                    | ✅  |
+| [prefer-shorthand-css-notations](docs/rules/prefer-shorthand-css-notations.md)         | Encourage usage of shorthand CSS notations                | ✅  |
+| [provide-print-css](docs/rules/provide-print-css.md)                                   | Enforce providing a print stylesheet                      | ✅  |
 
 <!-- end auto-generated rules list -->
 
