@@ -38,7 +38,7 @@ npm install -D eslint @green-code-initiative/ecocode-eslint-plugin
 
 ### Enable plugin with recommended configuration
 
-#### With modern `eslint.config.js`
+#### ESLint Flat Configuration (`eslint.config.js`)
 
 Add `@ecocode` **"flat/recommended"** configuration to  your `eslint.config.js`:
 
@@ -51,9 +51,9 @@ export default [
 ]
 ```
 
-#### With the legacy `.eslintrc` 
+#### ESLint deprecated legacy configuration (`.eslintrc`)
 
-Add `@ecocode` **"recommended"** configuration to `extends` section of your `.eslintrc`:
+For legacy ESLint versions using the deprecated `.eslintrc` file, add the `@ecocode` **"recommended"** configuration to the `extends` array :
 
 ```json
 {
@@ -63,7 +63,7 @@ Add `@ecocode` **"recommended"** configuration to `extends` section of your `.es
 
 ### Enable specific rules
 
-#### With modern `eslint.config.js`
+#### ESLint Flat configuration (`eslint.config.js`)
 
 Add the `ecocode` plugin configuration to your `eslint.config.js` and select the rules to activate:
 
@@ -81,9 +81,9 @@ export default [
 ]
 ```
 
-#### With the legacy `.eslintrc` 
+#### ESLint deprecated legacy configuration (`.eslintrc`)
 
-Add `@ecocode` to the `plugins` section of your `.eslintrc`, followed by rules configuration:
+If your project uses a legacy ESLint version, it may use as well the now deprecated `.eslintrc` file. In such case, Add `@ecocode` to the `plugins` array, potentially followed by rules specific configurations:
 
 ```jsonc
 {
