@@ -25,7 +25,7 @@
 const rulesList = require("./rule-list");
 
 const allRules = {};
-const recommendedRules = {}; // recommended rules
+const recommendedRules = {};
 
 for (let { ruleName, ruleModule } of rulesList) {
   allRules[ruleName] = ruleModule;
