@@ -57,7 +57,7 @@ The standalone version of the ESLint plugin is available from [npmjs](https://np
 
 | Plugins Version | SonarQube version | ESLint version |
 |-----------------|-------------------|----------------|
-| 1.4.+, 1.5.+    | 9.9.+ LTS to 10.5 | 7+             |
+| 1.4.+, 1.5.+    | 9.9.+ LTA to 10.7 | 7+             |
 
 🤝 Contribution
 ---------------
