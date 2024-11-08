@@ -36,19 +36,54 @@ yarn add -D eslint @green-code-initiative/ecocode-eslint-plugin
 npm install -D eslint @green-code-initiative/ecocode-eslint-plugin
 ```
 
-### Enable whole plugin
+### Enable plugin with recommended configuration
 
-Add `@ecocode` recommended configuration to `extends` section of your `.eslintrc`:
+#### ESLint Flat Configuration (`eslint.config.js`)
 
-```jsonc
+Add `@ecocode` **"flat/recommended"** configuration to  your `eslint.config.js`:
+
+```js
+import ecocode from '@ecocode/eslint-plugin'
+
+export default [
+  /* other eslint configurations */
+  ecocode.configs['flat/recommended'],
+]
+```
+
+#### ESLint deprecated legacy configuration (`.eslintrc`)
+
+For legacy ESLint versions using the deprecated `.eslintrc` file, add the `@ecocode` **"recommended"** configuration to the `extends` array :
+
+```json
 {
   "extends": ["plugin:@ecocode/recommended"]
 }
 ```
 
-### Enable only some rules
+### Enable specific rules
 
-Add `@ecocode` to the `plugins` section of your `.eslintrc`, followed by rules configuration:
+#### ESLint Flat configuration (`eslint.config.js`)
+
+Add the `ecocode` plugin configuration to your `eslint.config.js` and select the rules to activate:
+
+```js
+import ecocode from '@ecocode/eslint-plugin'
+
+export default [
+  /* other eslint configurations */
+  {
+    plugins: { "@ecocode": ecocode },
+    rules: {
+      "@ecocode/no-multiple-access-dom-element": "error"
+    }
+  }
+]
+```
+
+#### ESLint deprecated legacy configuration (`.eslintrc`)
+
+If your project uses a legacy ESLint version, it may use as well the now deprecated `.eslintrc` file. In such case, Add `@ecocode` to the `plugins` array, potentially followed by rules specific configurations:
 
 ```jsonc
 {
