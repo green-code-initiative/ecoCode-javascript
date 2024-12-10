@@ -27,7 +27,7 @@ import org.sonar.plugins.javascript.api.TypeScriptRule;
 @Rule(key = NoImportAllFromLibrary.RULE_KEY)
 public class NoImportAllFromLibrary implements EslintBasedCheck {
 
-    public static final String RULE_KEY = "EC9";
+    public static final String RULE_KEY = "GCI9";
 
     @Override
     public String eslintKey() {

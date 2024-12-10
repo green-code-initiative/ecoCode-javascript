@@ -27,7 +27,7 @@ import org.sonar.plugins.javascript.api.TypeScriptRule;
 @Rule(key = AvoidCSSAnimations.RULE_KEY)
 public class AvoidCSSAnimations implements EslintBasedCheck {
 
-    public static final String RULE_KEY = "EC29";
+    public static final String RULE_KEY = "GCI29";
 
     @Override
     public String eslintKey() {
