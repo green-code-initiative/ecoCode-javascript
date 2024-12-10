@@ -27,7 +27,7 @@ import org.sonar.plugins.javascript.api.TypeScriptRule;
 @Rule(key = PreferShorthandCSSNotations.RULE_KEY)
 public class PreferShorthandCSSNotations implements EslintBasedCheck {
 
-    public static final String RULE_KEY = "EC26";
+    public static final String RULE_KEY = "GCI26";
 
     @Override
     public String eslintKey() {
