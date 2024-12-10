@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 -   [#39](https://github.com/green-code-initiative/ecoCode-javascript/issues/39) Add rule `@ecocode/avoid-brightness-override` (EC522)
 -   [#41](https://github.com/green-code-initiative/ecoCode-javascript/pull/41) Add rule `@ecocode/no-torch` (EC530)
+-   Rename plugin to creedengo-javascript
 -   Add support for SonarQube up to 10.7
 
 ### Changed
